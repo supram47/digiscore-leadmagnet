@@ -1,0 +1,855 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DigiScore Hızlı Test — Dijital Olgunluk Değerlendirmesi</title>
+<meta name="description" content="8 soruda şirketinizin dijital olgunluk seviyesini ücretsiz öğrenin. Kayıt gerekmez.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+/* ── Reset & Base ─────────────────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { font-size: 16px; scroll-behavior: smooth; }
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  background: #F8FAFC;
+  color: #0F172A;
+  min-height: 100vh;
+}
+
+/* ── Brand Tokens ─────────────────────────────────────────────────── */
+:root {
+  --navy:    #0A2342;
+  --accent:  #E84C2E;
+  --accent2: #c93d21;
+  --bg:      #F8FAFC;
+  --surface: #FFFFFF;
+  --border:  #E2E8F0;
+  --muted:   #64748B;
+  --text:    #0F172A;
+  --success: #059669;
+  --radius:  14px;
+  --shadow:  0 2px 8px rgba(10,35,66,.08), 0 1px 2px rgba(10,35,66,.04);
+  --shadow-md: 0 6px 24px rgba(10,35,66,.12), 0 2px 6px rgba(10,35,66,.06);
+}
+
+/* ── Layout ───────────────────────────────────────────────────────── */
+.page { max-width: 680px; margin: 0 auto; padding: 0 16px 48px; }
+
+/* ── Header ───────────────────────────────────────────────────────── */
+.header {
+  background: var(--navy);
+  padding: 20px 16px;
+  text-align: center;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  box-shadow: 0 2px 12px rgba(10,35,66,.25);
+}
+.header-brand {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+.header-brand span.logo-text {
+  font-size: 1.15rem;
+  font-weight: 800;
+  color: #fff;
+  letter-spacing: -.01em;
+}
+.header-brand span.logo-badge {
+  font-size: 0.7rem;
+  font-weight: 700;
+  background: var(--accent);
+  color: #fff;
+  padding: 2px 8px;
+  border-radius: 20px;
+  letter-spacing: .04em;
+}
+.header-tagline {
+  font-size: 0.78rem;
+  color: rgba(255,255,255,.6);
+  margin-top: 4px;
+}
+
+/* ── Hero ─────────────────────────────────────────────────────────── */
+.hero {
+  text-align: center;
+  padding: 32px 0 20px;
+}
+.hero h1 {
+  font-size: 1.75rem;
+  font-weight: 900;
+  line-height: 1.2;
+  color: var(--navy);
+  margin-bottom: 10px;
+}
+.hero h1 span { color: var(--accent); }
+.hero p {
+  font-size: 0.95rem;
+  color: var(--muted);
+  line-height: 1.6;
+  max-width: 480px;
+  margin: 0 auto 16px;
+}
+.hero-pills {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+.pill {
+  font-size: 0.75rem;
+  font-weight: 600;
+  background: #EFF6FF;
+  color: #1D4ED8;
+  padding: 4px 12px;
+  border-radius: 20px;
+  border: 1px solid #BFDBFE;
+}
+
+/* ── Progress Bar ─────────────────────────────────────────────────── */
+.progress-wrap {
+  margin: 20px 0 8px;
+}
+.progress-label {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--muted);
+  margin-bottom: 6px;
+}
+.progress-track {
+  background: var(--border);
+  border-radius: 4px;
+  height: 6px;
+  overflow: hidden;
+}
+.progress-fill {
+  background: linear-gradient(90deg, var(--accent), #f97316);
+  height: 6px;
+  border-radius: 4px;
+  transition: width .4s ease;
+  width: 0%;
+}
+
+/* ── Question Card ────────────────────────────────────────────────── */
+.q-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 20px;
+  margin-bottom: 12px;
+  box-shadow: var(--shadow);
+  transition: box-shadow .2s;
+}
+.q-card.answered {
+  border-color: #BBF7D0;
+  box-shadow: 0 0 0 1px #BBF7D0, var(--shadow);
+}
+.q-meta {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 10px;
+}
+.q-num {
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: var(--accent);
+  text-transform: uppercase;
+  letter-spacing: .05em;
+  background: #FEF2F0;
+  padding: 2px 8px;
+  border-radius: 20px;
+}
+.q-dim {
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--muted);
+}
+.q-text {
+  font-size: 0.97rem;
+  font-weight: 600;
+  color: var(--text);
+  line-height: 1.45;
+  margin-bottom: 14px;
+}
+.q-options {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 6px;
+}
+.opt-btn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+  padding: 10px 4px;
+  border: 2px solid var(--border);
+  border-radius: 10px;
+  background: var(--bg);
+  cursor: pointer;
+  transition: all .15s ease;
+  font-family: inherit;
+  color: var(--text);
+  -webkit-tap-highlight-color: transparent;
+}
+.opt-btn:hover { border-color: var(--accent); background: #FEF2F0; }
+.opt-btn.selected {
+  border-color: var(--accent);
+  background: var(--accent);
+  color: #fff;
+  box-shadow: 0 2px 8px rgba(232,76,46,.35);
+}
+.opt-num {
+  font-size: 1.1rem;
+  font-weight: 800;
+  line-height: 1;
+}
+.opt-label {
+  font-size: 0.6rem;
+  font-weight: 500;
+  line-height: 1.2;
+  text-align: center;
+  opacity: .75;
+}
+.opt-btn.selected .opt-label { opacity: .9; }
+
+/* ── Submit Button ────────────────────────────────────────────────── */
+.btn-primary {
+  display: block;
+  width: 100%;
+  padding: 16px;
+  background: var(--accent);
+  color: #fff;
+  border: none;
+  border-radius: var(--radius);
+  font-family: inherit;
+  font-size: 1rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all .15s ease;
+  margin-top: 8px;
+  box-shadow: 0 4px 14px rgba(232,76,46,.35);
+}
+.btn-primary:hover { background: var(--accent2); transform: translateY(-1px); box-shadow: 0 6px 20px rgba(232,76,46,.4); }
+.btn-primary:active { transform: translateY(0); }
+.btn-primary:disabled { background: #CBD5E1; box-shadow: none; cursor: not-allowed; transform: none; }
+.btn-secondary {
+  display: block;
+  width: 100%;
+  padding: 12px;
+  background: transparent;
+  color: var(--muted);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  font-family: inherit;
+  font-size: 0.88rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all .15s;
+  margin-top: 8px;
+}
+.btn-secondary:hover { border-color: var(--navy); color: var(--navy); background: #F1F5F9; }
+
+/* ── Score Box ────────────────────────────────────────────────────── */
+.score-box {
+  background: linear-gradient(135deg, var(--navy) 0%, #0D2D55 60%, #0F3570 100%);
+  border-radius: 20px;
+  padding: 32px 24px;
+  text-align: center;
+  margin: 20px 0;
+  box-shadow: var(--shadow-md);
+  position: relative;
+  overflow: hidden;
+}
+.score-box::before {
+  content: '';
+  position: absolute;
+  right: -60px; top: -60px;
+  width: 180px; height: 180px;
+  background: radial-gradient(circle, rgba(232,76,46,.25) 0%, transparent 70%);
+}
+.score-num {
+  font-size: 4.5rem;
+  font-weight: 900;
+  color: #fff;
+  line-height: 1;
+}
+.score-denom {
+  font-size: 1.6rem;
+  font-weight: 500;
+  color: rgba(255,255,255,.5);
+}
+.score-level {
+  font-size: 1rem;
+  font-weight: 700;
+  color: rgba(255,255,255,.85);
+  margin-top: 8px;
+}
+.score-sub {
+  font-size: 0.8rem;
+  color: rgba(255,255,255,.5);
+  margin-top: 4px;
+}
+
+/* ── Email Gate ───────────────────────────────────────────────────── */
+.gate-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 24px;
+  box-shadow: var(--shadow);
+}
+.gate-title {
+  font-size: 1.1rem;
+  font-weight: 800;
+  color: var(--navy);
+  margin-bottom: 6px;
+}
+.gate-sub {
+  font-size: 0.85rem;
+  color: var(--muted);
+  margin-bottom: 18px;
+  line-height: 1.5;
+}
+.field-label {
+  display: block;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--text);
+  margin-bottom: 6px;
+}
+.field-input {
+  width: 100%;
+  padding: 12px 14px;
+  border: 1.5px solid var(--border);
+  border-radius: 10px;
+  font-family: inherit;
+  font-size: 0.95rem;
+  color: var(--text);
+  background: var(--bg);
+  transition: border-color .15s;
+  margin-bottom: 12px;
+  outline: none;
+}
+.field-input:focus { border-color: var(--accent); }
+.kvkk-wrap {
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+  margin-bottom: 16px;
+  padding: 12px;
+  background: #F8FAFC;
+  border-radius: 10px;
+  border: 1px solid var(--border);
+}
+.kvkk-wrap input[type="checkbox"] {
+  width: 18px; height: 18px;
+  accent-color: var(--accent);
+  flex-shrink: 0;
+  margin-top: 2px;
+  cursor: pointer;
+}
+.kvkk-wrap label {
+  font-size: 0.78rem;
+  color: var(--muted);
+  line-height: 1.5;
+  cursor: pointer;
+}
+.kvkk-wrap label a { color: var(--accent); }
+.error-msg {
+  font-size: 0.8rem;
+  color: #DC2626;
+  padding: 8px 12px;
+  background: #FEF2F2;
+  border-radius: 8px;
+  margin-bottom: 8px;
+  display: none;
+}
+
+/* ── Result ───────────────────────────────────────────────────────── */
+.section-title {
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: .06em;
+  color: var(--muted);
+  margin: 20px 0 10px;
+}
+.dim-list {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: var(--shadow);
+}
+.dim-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 16px;
+  border-bottom: 1px solid #F1F5F9;
+}
+.dim-row:last-child { border-bottom: none; }
+.dim-icon { font-size: 1.1rem; flex-shrink: 0; }
+.dim-name { font-size: 0.85rem; font-weight: 500; color: var(--text); flex: 1; }
+.dim-bar-wrap {
+  width: 90px;
+  background: #F1F5F9;
+  border-radius: 4px;
+  height: 7px;
+  flex-shrink: 0;
+}
+.dim-bar { height: 7px; border-radius: 4px; transition: width .6s ease; }
+.dim-val { font-size: 0.85rem; font-weight: 700; min-width: 28px; text-align: right; flex-shrink: 0; }
+.priority-box {
+  background: linear-gradient(135deg, #FEF9C3, #FEF3C7);
+  border: 1px solid #FCD34D;
+  border-radius: var(--radius);
+  padding: 14px 16px;
+  margin: 12px 0;
+}
+.priority-box strong { color: #92400E; font-size: 0.9rem; }
+.priority-box p { font-size: 0.82rem; color: #78350F; margin-top: 4px; line-height: 1.5; }
+.cta-box {
+  background: var(--navy);
+  border-radius: var(--radius);
+  padding: 20px;
+  text-align: center;
+  margin-top: 12px;
+}
+.cta-box p { font-size: 0.85rem; color: rgba(255,255,255,.7); margin-bottom: 12px; line-height: 1.5; }
+.cta-box a {
+  display: inline-block;
+  background: var(--accent);
+  color: #fff;
+  font-weight: 700;
+  font-size: 0.95rem;
+  padding: 12px 28px;
+  border-radius: 10px;
+  text-decoration: none;
+  transition: background .15s;
+}
+.cta-box a:hover { background: var(--accent2); }
+.success-badge {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: #ECFDF5;
+  border: 1px solid #A7F3D0;
+  border-radius: 10px;
+  padding: 10px 14px;
+  margin-bottom: 12px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #065F46;
+}
+
+/* ── Step Visibility ──────────────────────────────────────────────── */
+.step { display: none; }
+.step.active { display: block; }
+
+/* ── Footer ───────────────────────────────────────────────────────── */
+footer {
+  text-align: center;
+  padding: 24px 16px;
+  font-size: 0.75rem;
+  color: #94A3B8;
+  border-top: 1px solid var(--border);
+  margin-top: 40px;
+}
+footer a { color: #94A3B8; }
+
+/* ── Responsive ───────────────────────────────────────────────────── */
+@media (max-width: 480px) {
+  .hero h1 { font-size: 1.45rem; }
+  .opt-btn { padding: 8px 2px; }
+  .opt-num { font-size: 1rem; }
+  .opt-label { font-size: 0.55rem; }
+  .score-num { font-size: 3.5rem; }
+  .dim-bar-wrap { width: 60px; }
+}
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<div class="header">
+  <div class="header-brand">
+    <span class="logo-text">📊 DigiScore</span>
+    <span class="logo-badge">ÜCRETSİZ</span>
+  </div>
+  <div class="header-tagline">by Suphi Ramazanoğlu — Digital Transformation Consultant</div>
+</div>
+
+<div class="page">
+
+  <!-- STEP 1: QUESTIONS -->
+  <div class="step active" id="step-questions">
+    <div class="hero">
+      <h1>Dijital olgunluk seviyeniz<br><span>nerede?</span></h1>
+      <p>8 soruda şirketinizin dijital dönüşüm hazırlığını öğrenin. Kayıt gerekmez, 3 dakika.</p>
+      <div class="hero-pills">
+        <span class="pill">⏱ 3 dakika</span>
+        <span class="pill">🔒 Kayıt yok</span>
+        <span class="pill">📊 Anında sonuç</span>
+      </div>
+    </div>
+
+    <div class="progress-wrap">
+      <div class="progress-label">
+        <span id="progress-text">0 / 8 soru yanıtlandı</span>
+        <span id="progress-pct">0%</span>
+      </div>
+      <div class="progress-track">
+        <div class="progress-fill" id="progress-fill"></div>
+      </div>
+    </div>
+
+    <div id="questions-container"></div>
+
+    <button class="btn-primary" id="btn-calculate" disabled onclick="goToEmailGate()">
+      Tüm soruları yanıtlayın
+    </button>
+
+    <p style="text-align:center;font-size:.75rem;color:#94A3B8;margin-top:12px;">
+      Bu aşamada hiçbir kişisel bilgi toplanmıyor.
+    </p>
+  </div>
+
+  <!-- STEP 2: EMAIL GATE -->
+  <div class="step" id="step-email">
+    <div class="hero" style="padding-bottom:12px;">
+      <h1>Sonucunuz <span>hazır</span> 🎉</h1>
+      <p>E-posta adresinizi bırakın — 8 boyutun tam kırılımını görün.</p>
+    </div>
+
+    <div class="score-box" id="teaser-score">
+      <div>
+        <span class="score-num" id="teaser-num">—</span>
+        <span class="score-denom">/5</span>
+      </div>
+      <div class="score-level" id="teaser-level"></div>
+      <div class="score-sub">DigiScore Hızlı Değerlendirme</div>
+    </div>
+
+    <div class="gate-card">
+      <div class="gate-title">📬 Detaylı kırılımı görmek için</div>
+      <div class="gate-sub">8 boyutun tam analizi + öncelikli geliştirme önerisi anında ekrana gelecek.</div>
+
+      <div id="error-msg" class="error-msg"></div>
+
+      <label class="field-label" for="inp-name">Adınız (opsiyonel)</label>
+      <input class="field-input" type="text" id="inp-name" placeholder="Ahmet Yılmaz">
+
+      <label class="field-label" for="inp-email">E-posta adresiniz <span style="color:var(--accent)">*</span></label>
+      <input class="field-input" type="email" id="inp-email" placeholder="ahmet@sirketiniz.com">
+
+      <div class="kvkk-wrap">
+        <input type="checkbox" id="kvkk-check">
+        <label for="kvkk-check">
+          Kişisel verilerimin DigiScore hizmetini iyileştirme ve bilgilendirme amacıyla işlenmesine onay veriyorum.
+          <a href="https://suphiramazanoglu.com/gizlilik" target="_blank">Gizlilik Politikası</a>
+        </label>
+      </div>
+
+      <button class="btn-primary" onclick="submitEmail()">
+        Detaylı Sonuçlarımı Göster →
+      </button>
+      <button class="btn-secondary" onclick="goBack()">
+        ← Soruları yeniden yanıtla
+      </button>
+    </div>
+  </div>
+
+  <!-- STEP 3: FULL RESULT -->
+  <div class="step" id="step-result">
+    <div class="hero" style="padding-bottom:12px;">
+      <h1 id="result-greeting">Teşekkürler 🎉</h1>
+      <p>Dijital olgunluk puanınız ve boyut kırılımınız aşağıda.</p>
+    </div>
+
+    <div class="success-badge">
+      <span>✅</span>
+      <span>Sonuçlarınız e-posta adresinize gönderilecektir.</span>
+    </div>
+
+    <div class="score-box">
+      <div>
+        <span class="score-num" id="result-num">—</span>
+        <span class="score-denom">/5</span>
+      </div>
+      <div class="score-level" id="result-level"></div>
+      <div class="score-sub" id="result-desc"></div>
+    </div>
+
+    <div class="section-title">Boyut Kırılımı</div>
+    <div class="dim-list" id="dim-list"></div>
+
+    <div class="priority-box" id="priority-box">
+      <strong id="priority-title"></strong>
+      <p id="priority-text"></p>
+    </div>
+
+    <div class="cta-box">
+      <p>67 soruluk tam değerlendirmeyle ayrıntılı yol haritanızı ve sektör benchmark karşılaştırmanızı alın.</p>
+      <a href="https://suphiramazanoglu.com/digiscore" target="_blank">
+        📊 Tam DigiScore Değerlendirmesi →
+      </a>
+    </div>
+
+    <button class="btn-secondary" onclick="restart()" style="margin-top:12px;">
+      Testi Yeniden Yap
+    </button>
+  </div>
+
+</div>
+
+<footer>
+  © 2026 Suphi Ramazanoğlu — EVOLIXO &nbsp;·&nbsp;
+  <a href="https://suphiramazanoglu.com/gizlilik">Gizlilik Politikası</a> &nbsp;·&nbsp;
+  <a href="https://suphiramazanoglu.com">suphiramazanoglu.com</a>
+</footer>
+
+<script>
+// ── CONFIG ────────────────────────────────────────────────────────────
+const SUPABASE_URL  = 'https://vrdoiqeyhpxzzyrjxrmm.supabase.co';
+const SUPABASE_ANON = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InZyZG9pcWV5aHB4enp5cmp4cm1tIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODEwMjA5NDAsImV4cCI6MjA5NjU5Njk0MH0.-mm_Hvi3G8JBUdLTaUd1A1SANCCgKMQLJ3L-6UMkkm4';
+
+// ── SORULAR ───────────────────────────────────────────────────────────
+const QUESTIONS = [
+  { key: 'strateji',  icon: '🎯', dim: 'Strateji & Liderlik',
+    q: 'Dijital dönüşüm hedefleriniz ve öncelikleri ekibiniz tarafından net biçimde biliniyor mu?' },
+  { key: 'teknoloji', icon: '⚙️', dim: 'Teknoloji Altyapısı',
+    q: 'Yazılım ve operasyonel sistemleriniz birbiriyle ne kadar entegre çalışıyor?' },
+  { key: 'veri',      icon: '📊', dim: 'Veri & Analitik',
+    q: 'Kararlarınızı veriye mi yoksa sezgiye mi dayandırıyorsunuz?' },
+  { key: 'surec',     icon: '🔄', dim: 'Süreç Olgunluğu',
+    q: 'Tekrarlayan iş süreçleriniz standartlaştırılmış ve dokümante edilmiş mi?' },
+  { key: 'siber',     icon: '🛡️', dim: 'Siber Güvenlik',
+    q: 'Veri güvenliği ve erişim politikalarınız tanımlı ve aktif olarak uygulanıyor mu?' },
+  { key: 'musteri',   icon: '👥', dim: 'Müşteri Deneyimi',
+    q: 'Müşteri geri bildirimlerini ne kadar hızlı toplayıp harekete geçirebiliyorsunuz?' },
+  { key: 'inovasyon', icon: '💡', dim: 'İnovasyon & Yatırım',
+    q: 'Yeni ürün veya hizmet geliştirme için ayrılmış zaman ve bütçeniz var mı?' },
+  { key: 'insan',     icon: '🌱', dim: 'Yetenek & Kültür',
+    q: 'Ekibiniz değişime ve yeni çalışma yöntemlerine ne kadar açık?' }
+];
+
+const SCALE = [
+  { v: 1, short: '1', label: 'Başlangıç\naşamasında değil' },
+  { v: 2, short: '2', label: 'Bireysel\ninisiyatiflerle' },
+  { v: 3, short: '3', label: 'Kısmi\nuygulama var' },
+  { v: 4, short: '4', label: 'Büyük ölçüde\nuygulanıyor' },
+  { v: 5, short: '5', label: 'Kurumsal\nstandart' }
+];
+
+const LEVELS = [
+  { min: 1.0, max: 1.8, name: 'Seviye 1 — Başlangıç',  icon: '🔴', color: '#E74C3C', desc: 'Dijital dönüşüm farkındalığı düşük. Acil müdahale gerekiyor.' },
+  { min: 1.8, max: 2.6, name: 'Seviye 2 — Gelişmekte', icon: '🟠', color: '#E67E22', desc: 'Farkındalık oluştu, bazı girişimler başlatıldı. Stratejik yol haritası şart.' },
+  { min: 2.6, max: 3.4, name: 'Seviye 3 — Tanımlı',    icon: '🟡', color: '#D97706', desc: 'Süreçler tanımlı. Kurumsal ölçeğe geçme ve ölçüm adımına odaklanın.' },
+  { min: 3.4, max: 4.2, name: 'Seviye 4 — Yönetilen',  icon: '🟢', color: '#059669', desc: 'Veriye dayalı kararlar alınıyor. Sektör ortalamasının üzerinde.' },
+  { min: 4.2, max: 5.1, name: 'Seviye 5 — Optimize',   icon: '🔵', color: '#2980B9', desc: 'Sürekli iyileştirme kültürü. Dijital lider konumundasınız.' }
+];
+
+const DIM_COLORS = { 1: '#E74C3C', 2: '#E67E22', 3: '#D97706', 4: '#059669', 5: '#2980B9' };
+
+// ── STATE ─────────────────────────────────────────────────────────────
+const answers = {};
+
+// ── INIT ──────────────────────────────────────────────────────────────
+function init() {
+  const container = document.getElementById('questions-container');
+  QUESTIONS.forEach((q, i) => {
+    const card = document.createElement('div');
+    card.className = 'q-card';
+    card.id = `qcard-${q.key}`;
+    card.innerHTML = `
+      <div class="q-meta">
+        <span class="q-num">Soru ${i + 1} / ${QUESTIONS.length}</span>
+        <span class="q-dim">${q.icon} ${q.dim}</span>
+      </div>
+      <div class="q-text">${q.q}</div>
+      <div class="q-options">
+        ${SCALE.map(s => `
+          <button class="opt-btn" data-key="${q.key}" data-val="${s.v}"
+            onclick="selectAnswer('${q.key}', ${s.v}, this)">
+            <span class="opt-num">${s.short}</span>
+            <span class="opt-label">${s.label}</span>
+          </button>
+        `).join('')}
+      </div>
+    `;
+    container.appendChild(card);
+  });
+}
+
+// ── SELECT ANSWER ─────────────────────────────────────────────────────
+function selectAnswer(key, val, btn) {
+  answers[key] = val;
+
+  // Highlight seçilen buton
+  const card = document.getElementById(`qcard-${key}`);
+  card.querySelectorAll('.opt-btn').forEach(b => b.classList.remove('selected'));
+  btn.classList.add('selected');
+  card.classList.add('answered');
+
+  // Progress güncelle
+  const count = Object.keys(answers).length;
+  const pct = Math.round(count / QUESTIONS.length * 100);
+  document.getElementById('progress-text').textContent = `${count} / ${QUESTIONS.length} soru yanıtlandı`;
+  document.getElementById('progress-pct').textContent = pct + '%';
+  document.getElementById('progress-fill').style.width = pct + '%';
+
+  // Submit butonu
+  const btn_calc = document.getElementById('btn-calculate');
+  if (count === QUESTIONS.length) {
+    btn_calc.disabled = false;
+    btn_calc.textContent = 'Sonuçlarımı Hesapla →';
+  }
+}
+
+// ── GET LEVEL ─────────────────────────────────────────────────────────
+function getLevel(score) {
+  return LEVELS.find(l => score >= l.min && score < l.max) || LEVELS[LEVELS.length - 1];
+}
+
+// ── GO TO EMAIL GATE ──────────────────────────────────────────────────
+function goToEmailGate() {
+  const score = Object.values(answers).reduce((a, b) => a + b, 0) / QUESTIONS.length;
+  const lvl = getLevel(score);
+
+  document.getElementById('teaser-num').textContent = score.toFixed(1);
+  document.getElementById('teaser-level').textContent = lvl.icon + ' ' + lvl.name;
+
+  showStep('step-email');
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+// ── SUBMIT EMAIL ──────────────────────────────────────────────────────
+async function submitEmail() {
+  const email = document.getElementById('inp-email').value.trim();
+  const name  = document.getElementById('inp-name').value.trim();
+  const kvkk  = document.getElementById('kvkk-check').checked;
+  const errEl = document.getElementById('error-msg');
+  errEl.style.display = 'none';
+
+  if (!email || !email.includes('@')) {
+    errEl.textContent = 'Geçerli bir e-posta adresi girin.';
+    errEl.style.display = 'block';
+    return;
+  }
+  if (!kvkk) {
+    errEl.textContent = 'Devam etmek için gizlilik politikasını kabul edin.';
+    errEl.style.display = 'block';
+    return;
+  }
+
+  const score = Object.values(answers).reduce((a, b) => a + b, 0) / QUESTIONS.length;
+
+  // Supabase'e kaydet
+  try {
+    await fetch(`${SUPABASE_URL}/rest/v1/quick_leads`, {
+      method: 'POST',
+      headers: {
+        'apikey': SUPABASE_ANON,
+        'Authorization': 'Bearer ' + SUPABASE_ANON,
+        'Content-Type': 'application/json',
+        'Prefer': 'return=minimal'
+      },
+      body: JSON.stringify({
+        email: email.toLowerCase(),
+        name:  name || null,
+        score: parseFloat(score.toFixed(1)),
+        answers: answers,
+        kvkk_consent: true,
+        source: 'meta_ads_v3'
+      })
+    });
+  } catch (e) {
+    // Sessizce devam et — kullanıcı deneyimini kesmeme
+    console.warn('Supabase kayıt hatası:', e);
+  }
+
+  showResult(email, name, score);
+}
+
+// ── SHOW RESULT ───────────────────────────────────────────────────────
+function showResult(email, name, score) {
+  const lvl = getLevel(score);
+
+  document.getElementById('result-greeting').textContent =
+    'Teşekkürler' + (name ? ', ' + name.split(' ')[0] : '') + '! 🎉';
+  document.getElementById('result-num').textContent = score.toFixed(1);
+  document.getElementById('result-level').textContent = lvl.icon + ' ' + lvl.name;
+  document.getElementById('result-desc').textContent = lvl.desc;
+
+  // Boyut kırılımı
+  const dimList = document.getElementById('dim-list');
+  dimList.innerHTML = '';
+  QUESTIONS.forEach(q => {
+    const val = answers[q.key] || 0;
+    const pct = val / 5 * 100;
+    const color = DIM_COLORS[val] || '#94A3B8';
+    const row = document.createElement('div');
+    row.className = 'dim-row';
+    row.innerHTML = `
+      <span class="dim-icon">${q.icon}</span>
+      <span class="dim-name">${q.dim}</span>
+      <div class="dim-bar-wrap">
+        <div class="dim-bar" style="width:${pct}%;background:${color}"></div>
+      </div>
+      <span class="dim-val" style="color:${color}">${val}/5</span>
+    `;
+    dimList.appendChild(row);
+  });
+
+  // Öncelik alanı
+  const lowest = QUESTIONS.reduce((a, b) => (answers[a.key] || 0) <= (answers[b.key] || 0) ? a : b);
+  document.getElementById('priority-title').textContent =
+    '⚡ Öncelikli alan: ' + lowest.icon + ' ' + lowest.dim + ' (' + answers[lowest.key] + '/5)';
+  document.getElementById('priority-text').textContent =
+    'Bu boyuttaki açık dijital dönüşüm hızınızı en çok etkileyen unsur. Detaylı yol haritası için tam DigiScore değerlendirmesini tamamlayın.';
+
+  showStep('step-result');
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+// ── NAV ───────────────────────────────────────────────────────────────
+function showStep(id) {
+  document.querySelectorAll('.step').forEach(s => s.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+}
+
+function goBack() {
+  showStep('step-questions');
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+function restart() {
+  Object.keys(answers).forEach(k => delete answers[k]);
+  document.querySelectorAll('.opt-btn').forEach(b => b.classList.remove('selected'));
+  document.querySelectorAll('.q-card').forEach(c => c.classList.remove('answered'));
+  document.getElementById('progress-fill').style.width = '0%';
+  document.getElementById('progress-text').textContent = '0 / 8 soru yanıtlandı';
+  document.getElementById('progress-pct').textContent = '0%';
+  const btn = document.getElementById('btn-calculate');
+  btn.disabled = true;
+  btn.textContent = 'Tüm soruları yanıtlayın';
+  document.getElementById('inp-email').value = '';
+  document.getElementById('inp-name').value = '';
+  document.getElementById('kvkk-check').checked = false;
+  showStep('step-questions');
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+// ── START ─────────────────────────────────────────────────────────────
+init();
+</script>
+</body>
+</html>
