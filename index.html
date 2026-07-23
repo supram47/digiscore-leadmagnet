@@ -3,16 +3,16 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>DigiScore — Dijital Olgunluk Hızlı Testi</title>
-<meta name="description" content="8 soruda şirketinizin dijital olgunluk seviyesini ücretsiz öğrenin. DigiScore by EVOLIXO.">
+<title>DigiScore — Dijital Olgunluk Hizli Testi</title>
+<meta name="description" content="7 soruda sirketinizin dijital olgunluk seviyesini ucretsiz ogrenin. DigiScore by EVOLIXO.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 <style>
-/* ── Reset ─────────────────────────────────────────────────────────── */
+/* Reset */
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 html { font-size: 16px; scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
 
-/* ── Tokens ────────────────────────────────────────────────────────── */
+/* Tokens */
 :root {
   --navy:     #0A2342;
   --navy-mid: #0D2D55;
@@ -37,7 +37,7 @@ body {
   min-height: 100vh;
 }
 
-/* ── TOP BRAND BAR ─────────────────────────────────────────────────── */
+/* TOP BRAND BAR */
 .top-bar {
   background: var(--navy);
   padding: 14px 20px;
@@ -56,8 +56,7 @@ body {
   text-decoration: none;
 }
 .logo-mark {
-  width: 34px;
-  height: 34px;
+  width: 34px; height: 34px;
   background: var(--accent);
   border-radius: 8px;
   display: flex;
@@ -69,716 +68,420 @@ body {
   letter-spacing: -.02em;
   flex-shrink: 0;
 }
-.logo-wordmark {
-  display: flex;
-  flex-direction: column;
-  gap: 0;
-}
-.logo-wordmark .brand-name {
-  font-size: 1.05rem;
-  font-weight: 800;
-  color: #fff;
-  line-height: 1.1;
-  letter-spacing: -.02em;
-}
-.logo-wordmark .brand-sub {
-  font-size: 0.65rem;
-  font-weight: 500;
-  color: rgba(255,255,255,.5);
-  letter-spacing: .04em;
-  text-transform: uppercase;
-}
+.logo-wordmark { display: flex; flex-direction: column; gap: 0; }
+.logo-wordmark .brand-name { font-size: 1.05rem; font-weight: 800; color: #fff; line-height: 1.1; letter-spacing: -.02em; }
+.logo-wordmark .brand-sub  { font-size: 0.65rem; font-weight: 500; color: rgba(255,255,255,.5); letter-spacing: .04em; text-transform: uppercase; }
 .top-bar-badge {
-  font-size: 0.68rem;
-  font-weight: 700;
-  background: rgba(232,76,46,.20);
-  color: #fca89a;
+  font-size: 0.68rem; font-weight: 700;
+  background: rgba(232,76,46,.20); color: #fca89a;
   border: 1px solid rgba(232,76,46,.30);
-  padding: 3px 10px;
-  border-radius: 20px;
-  letter-spacing: .04em;
-  text-transform: uppercase;
+  padding: 3px 10px; border-radius: 20px;
+  letter-spacing: .04em; text-transform: uppercase;
 }
 
-/* ── HERO ──────────────────────────────────────────────────────────── */
+/* HERO */
+@keyframes heroShift {
+  0%   { background-position: 0%   50%; }
+  50%  { background-position: 100% 50%; }
+  100% { background-position: 0%   50%; }
+}
 .hero {
-  background: linear-gradient(160deg, var(--navy) 0%, #0e2f5e 55%, #162c53 100%);
-  padding: 36px 20px 44px;
+  background: linear-gradient(145deg, #071c38 0%, #0A2342 25%, #0e3060 55%, #112848 78%, #0A2342 100%);
+  background-size: 300% 300%;
+  animation: heroShift 12s ease infinite;
+  padding: 40px 20px 50px;
   text-align: center;
   position: relative;
   overflow: hidden;
 }
 .hero::before {
   content: '';
-  position: absolute;
-  inset: 0;
+  position: absolute; inset: 0;
   background:
-    radial-gradient(ellipse 60% 50% at 80% -10%, rgba(232,76,46,.18) 0%, transparent 60%),
-    radial-gradient(ellipse 40% 40% at 10% 110%, rgba(232,76,46,.10) 0%, transparent 60%);
+    radial-gradient(ellipse 70% 55% at 85%  -5%, rgba(232,76,46,.22) 0%, transparent 58%),
+    radial-gradient(ellipse 50% 45% at 5%  108%, rgba(232,76,46,.13) 0%, transparent 55%),
+    radial-gradient(ellipse 35% 30% at 50%  50%, rgba(14,48,96,.40)  0%, transparent 70%);
   pointer-events: none;
 }
+@keyframes eyebrowPulse {
+  0%, 100% { box-shadow: 0 0 0 0   rgba(232,76,46,.40); }
+  50%       { box-shadow: 0 0 0 5px rgba(232,76,46,.00); }
+}
 .hero-eyebrow {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  font-size: 0.72rem;
-  font-weight: 700;
-  letter-spacing: .1em;
-  text-transform: uppercase;
-  color: var(--accent);
-  background: rgba(232,76,46,.12);
-  border: 1px solid rgba(232,76,46,.25);
-  padding: 4px 12px;
-  border-radius: 20px;
-  margin-bottom: 16px;
-  position: relative;
+  display: inline-flex; align-items: center; gap: 6px;
+  font-size: 0.75rem; font-weight: 700; letter-spacing: .12em; text-transform: uppercase;
+  color: #ff8066;
+  background: rgba(232,76,46,.18); border: 1px solid rgba(232,76,46,.45);
+  padding: 5px 14px; border-radius: 20px;
+  margin-bottom: 16px; position: relative;
+  animation: eyebrowPulse 2.8s ease infinite;
 }
 .hero h1 {
-  font-size: clamp(1.55rem, 5vw, 2.1rem);
-  font-weight: 900;
-  color: #fff;
-  line-height: 1.2;
-  text-wrap: balance;
-  margin-bottom: 12px;
-  position: relative;
+  font-size: clamp(1.85rem, 6vw, 2.2rem); font-weight: 900; color: #fff;
+  line-height: 1.2; text-wrap: balance; margin-bottom: 12px; position: relative;
   letter-spacing: -.025em;
+  text-shadow: 0 2px 20px rgba(0,0,0,.35);
 }
-.hero h1 em {
-  font-style: normal;
-  color: var(--accent);
-}
+.hero h1 em { font-style: normal; color: var(--accent); }
 .hero-sub {
-  font-size: 0.9rem;
-  color: rgba(255,255,255,.65);
-  line-height: 1.6;
-  max-width: 380px;
-  margin: 0 auto 20px;
-  position: relative;
+  font-size: 0.9rem; color: rgba(255,255,255,.65); line-height: 1.6;
+  max-width: 380px; margin: 0 auto 20px; position: relative;
 }
-.hero-chips {
-  display: flex;
-  justify-content: center;
-  gap: 8px;
-  flex-wrap: wrap;
-  position: relative;
-}
+.hero-chips { display: flex; justify-content: center; gap: 8px; flex-wrap: wrap; position: relative; }
 .chip {
-  font-size: 0.72rem;
-  font-weight: 600;
-  background: rgba(255,255,255,.09);
-  color: rgba(255,255,255,.80);
-  border: 1px solid rgba(255,255,255,.12);
-  padding: 5px 13px;
-  border-radius: 20px;
-  backdrop-filter: blur(4px);
+  font-size: 0.75rem; font-weight: 600;
+  background: rgba(255,255,255,.11); color: rgba(255,255,255,.90);
+  border: 1px solid rgba(255,255,255,.22);
+  padding: 6px 14px; border-radius: 20px; backdrop-filter: blur(4px);
+  box-shadow: 0 0 0 1px rgba(255,255,255,.06) inset;
+  transition: background .2s, border-color .2s, transform .15s;
 }
+.chip:hover { background: rgba(255,255,255,.16); border-color: rgba(255,255,255,.35); transform: translateY(-1px); }
 
-/* ── STEP INDICATOR ────────────────────────────────────────────────── */
+/* STEP INDICATOR */
 .steps-bar {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0;
-  padding: 18px 20px 0;
-  max-width: 480px;
-  margin: 0 auto;
+  display: flex; align-items: center; justify-content: center;
+  gap: 0; padding: 18px 20px 0;
+  max-width: 480px; margin: 0 auto;
 }
-.step-item {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 6px;
-  flex: 1;
-  position: relative;
-}
+.step-item { display: flex; flex-direction: column; align-items: center; gap: 6px; flex: 1; position: relative; }
 .step-item + .step-item::before {
-  content: '';
-  position: absolute;
-  left: -50%;
-  top: 13px;
-  width: 100%;
-  height: 2px;
-  background: var(--border);
-  z-index: 0;
+  content: ''; position: absolute; left: -50%; top: 13px;
+  width: 100%; height: 2px; background: var(--border); z-index: 0;
 }
-.step-item.done + .step-item.active::before,
-.step-item.active + .step-item::before { background: var(--border); }
 .step-item.done + .step-item::before { background: var(--accent); opacity: .4; }
 .step-dot {
-  width: 28px;
-  height: 28px;
-  border-radius: 50%;
-  background: var(--border);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 0.72rem;
-  font-weight: 700;
-  color: var(--muted);
-  z-index: 1;
-  position: relative;
-  transition: all .3s ease;
+  width: 28px; height: 28px; border-radius: 50%; background: var(--border);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 0.72rem; font-weight: 700; color: var(--muted);
+  z-index: 1; position: relative; transition: all .3s ease;
 }
-.step-item.active .step-dot {
-  background: var(--accent);
-  color: #fff;
-  box-shadow: 0 0 0 4px rgba(232,76,46,.18);
-}
-.step-item.done .step-dot {
-  background: #059669;
-  color: #fff;
-}
-.step-label {
-  font-size: 0.68rem;
-  font-weight: 600;
-  color: var(--muted);
-  text-align: center;
-  letter-spacing: .01em;
-}
+.step-item.active .step-dot { background: var(--accent); color: #fff; box-shadow: 0 0 0 4px rgba(232,76,46,.18); }
+.step-item.done   .step-dot { background: #059669; color: #fff; }
+.step-label { font-size: 0.68rem; font-weight: 600; color: var(--muted); text-align: center; letter-spacing: .01em; }
 .step-item.active .step-label { color: var(--accent); }
-.step-item.done .step-label { color: #059669; }
+.step-item.done   .step-label { color: #059669; }
 
-/* ── PROGRESS ───────────────────────────────────────────────────────── */
-.progress-wrap {
-  padding: 14px 0 6px;
+/* PROGRESS */
+.progress-wrap { padding: 14px 0 6px; }
+@keyframes progressPulse {
+  0%, 100% { opacity: 1;    filter: brightness(1);    }
+  50%       { opacity: .85; filter: brightness(1.15); }
 }
 .progress-meta {
-  display: flex;
-  justify-content: space-between;
-  font-size: 0.75rem;
-  font-weight: 600;
-  color: var(--muted);
-  margin-bottom: 7px;
+  display: flex; justify-content: space-between;
+  font-size: 0.82rem; font-weight: 700; color: var(--text);
+  margin-bottom: 8px;
 }
-.progress-track {
-  background: var(--border);
-  border-radius: 4px;
-  height: 5px;
-  overflow: hidden;
-}
+.progress-track { background: #DDE4EE; border-radius: 6px; height: 8px; overflow: hidden; }
 .progress-fill {
-  background: linear-gradient(90deg, var(--accent) 0%, #f97316 100%);
-  height: 5px;
-  border-radius: 4px;
-  transition: width .35s cubic-bezier(.4,0,.2,1);
+  background: linear-gradient(90deg, #E84C2E 0%, #f97316 60%, #fbbf24 100%);
+  height: 8px; border-radius: 6px;
+  box-shadow: 0 1px 8px rgba(232,76,46,.35);
+  animation: progressPulse 2.2s ease infinite;
+  transition: width .4s cubic-bezier(.4,0,.2,1);
   width: 0%;
 }
 
-/* ── LAYOUT ─────────────────────────────────────────────────────────── */
-.page {
-  max-width: 640px;
-  margin: 0 auto;
-  padding: 0 16px 56px;
-}
+/* LAYOUT */
+.page { max-width: 640px; margin: 0 auto; padding: 0 16px 56px; }
 
-/* ── STEP VISIBILITY ────────────────────────────────────────────────── */
+/* STEP VISIBILITY */
 .step { display: none; }
 .step.active { display: block; }
 
-/* ── QUESTION CARD ──────────────────────────────────────────────────── */
+/* QUESTION CARD */
 .q-card {
-  background: var(--surface);
-  border: 1.5px solid var(--border);
-  border-radius: var(--radius);
-  padding: 18px 16px;
-  margin-bottom: 10px;
+  background: var(--surface); border: 1.5px solid var(--border);
+  border-radius: 14px; padding: 20px 18px; margin-bottom: 10px;
   box-shadow: var(--sh-sm);
-  transition: border-color .2s, box-shadow .2s;
+  transition: border-color .2s, box-shadow .25s, transform .2s, background .2s, opacity .28s;
+}
+.q-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 28px rgba(10,35,66,.13), 0 2px 8px rgba(10,35,66,.07);
 }
 .q-card.answered {
-  border-color: #6EE7B7;
-  box-shadow: var(--sh-sm), 0 0 0 1px #6EE7B7;
+  border-color: #34D399;
+  background: linear-gradient(160deg, rgba(52,211,153,.06) 0%, rgba(255,255,255,1) 60%);
+  box-shadow: 0 0 0 1px #34D399, 0 4px 18px rgba(52,211,153,.12);
 }
-.q-head {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  margin-bottom: 9px;
-}
+.q-head { display: flex; align-items: center; gap: 8px; margin-bottom: 9px; }
 .q-num {
-  font-size: 0.65rem;
-  font-weight: 700;
-  color: var(--accent);
-  text-transform: uppercase;
-  letter-spacing: .07em;
-  background: rgba(232,76,46,.08);
-  padding: 2px 8px;
-  border-radius: 20px;
-  flex-shrink: 0;
+  font-size: 0.65rem; font-weight: 700; color: var(--accent); text-transform: uppercase;
+  letter-spacing: .07em; background: rgba(232,76,46,.08); padding: 2px 8px; border-radius: 20px; flex-shrink: 0;
 }
-.q-dim {
-  font-size: 0.75rem;
-  font-weight: 600;
-  color: var(--muted);
-}
-.q-text {
-  font-size: 0.93rem;
-  font-weight: 600;
-  color: var(--text);
-  line-height: 1.45;
-  margin-bottom: 13px;
-}
-.q-options {
-  display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  gap: 5px;
-}
+.q-dim  { font-size: 0.75rem; font-weight: 600; color: var(--muted); }
+.q-text { font-size: 0.93rem; font-weight: 600; color: var(--text); line-height: 1.45; margin-bottom: 13px; }
+.q-options { display: grid; grid-template-columns: repeat(5, 1fr); gap: 5px; }
 .opt-btn {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 3px;
-  padding: 11px 3px;
-  border: 1.5px solid var(--border);
-  border-radius: 9px;
-  background: var(--bg);
+  display: flex; flex-direction: column; align-items: center; gap: 3px;
+  padding: 12px 3px;
+  border: 1.5px solid var(--border); border-radius: 10px;
+  background: #FAFBFC;
   cursor: pointer;
-  transition: border-color .15s, background .15s, transform .1s;
-  font-family: inherit;
-  color: var(--text);
-  -webkit-tap-highlight-color: transparent;
-  touch-action: manipulation;
+  transition: border-color .15s, background .15s, transform .15s, box-shadow .15s;
+  font-family: inherit; color: var(--text);
+  -webkit-tap-highlight-color: transparent; touch-action: manipulation;
+  position: relative; overflow: hidden;
 }
 .opt-btn:hover {
-  border-color: var(--accent);
-  background: rgba(232,76,46,.05);
+  border-color: var(--accent); background: rgba(232,76,46,.06);
+  transform: translateY(-1px); box-shadow: 0 3px 10px rgba(232,76,46,.15);
 }
 .opt-btn:active { transform: scale(.96); }
 .opt-btn.selected {
-  border-color: var(--accent);
-  background: var(--accent);
-  color: #fff;
-  box-shadow: 0 2px 10px rgba(232,76,46,.35);
+  background: linear-gradient(160deg, #E84C2E 0%, #d94428 100%);
+  border-color: #E84C2E; color: #fff;
+  transform: scale(1.04);
+  box-shadow: 0 4px 16px rgba(232,76,46,.42), 0 1px 4px rgba(232,76,46,.25);
 }
-.opt-num {
-  font-size: 1.05rem;
-  font-weight: 800;
-  line-height: 1;
+.opt-btn.selected::after {
+  content: '';
+  position: absolute; top: 4px; right: 4px;
+  width: 14px; height: 14px;
+  background: rgba(255,255,255,.25)
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12'%3E%3Cpath d='M2 6l3 3 5-5' stroke='%23fff' stroke-width='1.8' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E")
+    center / 10px no-repeat;
+  border-radius: 50%;
 }
-.opt-label {
-  font-size: 0.56rem;
-  font-weight: 500;
-  line-height: 1.25;
-  text-align: center;
-  opacity: .7;
-}
+.opt-num   { font-size: 1.05rem; font-weight: 800; line-height: 1; }
+.opt-label { font-size: 0.60rem; font-weight: 500; line-height: 1.25; text-align: center; opacity: .7; }
 .opt-btn.selected .opt-label { opacity: .88; }
 
-/* ── BUTTONS ─────────────────────────────────────────────────────────── */
+/* SLIDE ANIMATIONS */
+@keyframes slideInFromRight {
+  from { transform: translateX(60px);  opacity: 0; }
+  to   { transform: translateX(0);     opacity: 1; }
+}
+@keyframes slideInFromLeft {
+  from { transform: translateX(-60px); opacity: 0; }
+  to   { transform: translateX(0);     opacity: 1; }
+}
+.q-slide-out-left  { transform: translateX(-60px); opacity: 0; pointer-events: none; transition: transform .22s ease, opacity .22s ease; }
+.q-slide-out-right { transform: translateX(60px);  opacity: 0; pointer-events: none; transition: transform .22s ease, opacity .22s ease; }
+.q-slide-in-right  { animation: slideInFromRight .3s ease forwards; }
+.q-slide-in-left   { animation: slideInFromLeft  .3s ease forwards; }
+
+/* BACK BUTTON */
+.btn-back {
+  display: none;
+  background: transparent; border: none;
+  font-family: inherit; font-size: 0.80rem; font-weight: 600;
+  color: var(--muted); cursor: pointer; padding: 8px 0 4px;
+  letter-spacing: -.01em; transition: color .15s;
+}
+.btn-back:hover { color: var(--navy); }
+
+/* BUTTONS */
 .btn-primary {
-  display: block;
-  width: 100%;
-  padding: 16px;
-  background: var(--accent);
-  color: #fff;
-  border: none;
-  border-radius: var(--radius);
-  font-family: inherit;
-  font-size: 1rem;
-  font-weight: 700;
-  cursor: pointer;
+  display: block; width: 100%; padding: 16px;
+  background: var(--accent); color: #fff; border: none;
+  border-radius: var(--radius); font-family: inherit;
+  font-size: 1rem; font-weight: 700; cursor: pointer;
   transition: background .15s, transform .12s, box-shadow .15s;
-  margin-top: 10px;
-  box-shadow: 0 4px 16px rgba(232,76,46,.38);
+  margin-top: 10px; box-shadow: 0 4px 16px rgba(232,76,46,.38);
   letter-spacing: -.01em;
 }
-.btn-primary:hover:not(:disabled) {
-  background: var(--accent-dk);
-  transform: translateY(-1px);
-  box-shadow: 0 6px 22px rgba(232,76,46,.44);
-}
+.btn-primary:hover:not(:disabled) { background: var(--accent-dk); transform: translateY(-1px); box-shadow: 0 6px 22px rgba(232,76,46,.44); }
 .btn-primary:active:not(:disabled) { transform: translateY(0); }
-.btn-primary:disabled {
-  background: #C8D3DF;
-  box-shadow: none;
-  cursor: not-allowed;
-  transform: none;
-}
+.btn-primary:disabled { background: #C8D3DF; box-shadow: none; cursor: not-allowed; transform: none; }
 .btn-ghost {
-  display: block;
-  width: 100%;
-  padding: 12px;
-  background: transparent;
-  color: var(--muted);
-  border: 1.5px solid var(--border);
-  border-radius: var(--radius);
-  font-family: inherit;
-  font-size: 0.87rem;
-  font-weight: 600;
-  cursor: pointer;
+  display: block; width: 100%; padding: 12px;
+  background: transparent; color: var(--muted);
+  border: 1.5px solid var(--border); border-radius: var(--radius);
+  font-family: inherit; font-size: 0.87rem; font-weight: 600; cursor: pointer;
   transition: border-color .15s, color .15s, background .15s;
   margin-top: 8px;
 }
 .btn-ghost:hover { border-color: var(--navy); color: var(--navy); background: rgba(10,35,66,.04); }
 
-/* ── SCORE TEASER ────────────────────────────────────────────────────── */
+/* SCORE CARD */
 .score-card {
-  background: linear-gradient(140deg, var(--navy) 0%, #0e3066 60%, #132d60 100%);
-  border-radius: var(--radius-lg);
-  padding: 28px 24px;
-  text-align: center;
+  background: linear-gradient(145deg, #081c38 0%, #0c2a5a 35%, #0f3570 65%, #0e2d5c 100%);
+  border-radius: var(--radius-lg); padding: 28px 24px; text-align: center;
   margin: 18px 0;
-  box-shadow: var(--sh-lg);
-  position: relative;
-  overflow: hidden;
+  box-shadow: 0 20px 60px rgba(10,35,66,.30), 0 4px 16px rgba(10,35,66,.15);
+  position: relative; overflow: hidden;
+}
+.score-card::before {
+  content: '';
+  position: absolute; inset: 0;
+  background:
+    radial-gradient(ellipse 65% 50% at 20% -10%, rgba(232,76,46,.18) 0%, transparent 55%),
+    radial-gradient(ellipse 40% 35% at 85%  110%, rgba(59,130,246,.10) 0%, transparent 55%);
+  pointer-events: none;
 }
 .score-card::after {
   content: 'DigiScore';
-  position: absolute;
-  right: -8px; bottom: 8px;
-  font-size: 3.5rem;
-  font-weight: 900;
-  color: rgba(255,255,255,.04);
-  letter-spacing: -.05em;
-  pointer-events: none;
-  user-select: none;
-  white-space: nowrap;
+  position: absolute; right: -8px; bottom: 8px;
+  font-size: 3.5rem; font-weight: 900; color: rgba(255,255,255,.04);
+  letter-spacing: -.05em; pointer-events: none; user-select: none; white-space: nowrap;
 }
-.score-main {
-  display: flex;
-  align-items: baseline;
-  justify-content: center;
-  gap: 4px;
-  margin-bottom: 6px;
+.score-main  { display: flex; align-items: baseline; justify-content: center; gap: 4px; margin-bottom: 6px; }
+.score-num   {
+  font-size: 4.5rem; font-weight: 900; color: #fff; line-height: 1; letter-spacing: -.05em;
+  text-shadow: 0 0 40px rgba(255,255,255,.35), 0 2px 16px rgba(255,255,255,.15);
 }
-.score-num {
-  font-size: 4rem;
-  font-weight: 900;
-  color: #fff;
-  line-height: 1;
-  letter-spacing: -.04em;
-}
-.score-denom {
-  font-size: 1.4rem;
-  font-weight: 500;
-  color: rgba(255,255,255,.40);
-}
+.score-denom { font-size: 1.4rem; font-weight: 500; color: rgba(255,255,255,.40); }
 .score-level {
-  font-size: 0.95rem;
-  font-weight: 700;
-  color: rgba(255,255,255,.9);
+  display: inline-block;
+  padding: 4px 14px; border-radius: 30px;
+  font-size: 0.82rem; font-weight: 800; letter-spacing: .03em; text-transform: uppercase;
   margin-bottom: 4px;
+  background: rgba(255,255,255,.12); color: rgba(255,255,255,.90);
+  border: 1px solid rgba(255,255,255,.20);
 }
-.score-label {
-  font-size: 0.72rem;
-  font-weight: 600;
-  color: rgba(255,255,255,.40);
-  letter-spacing: .08em;
-  text-transform: uppercase;
-}
+.score-card.level-red    .score-level { background: rgba(220,38,38,.30);  border-color: rgba(220,38,38,.50);  color: #fca5a5; }
+.score-card.level-yellow .score-level { background: rgba(217,119,6,.25);  border-color: rgba(217,119,6,.45);  color: #fcd34d; }
+.score-card.level-green  .score-level { background: rgba(5,150,105,.25);  border-color: rgba(5,150,105,.45);  color: #6ee7b7; }
+.score-label { font-size: 0.75rem; font-weight: 600; color: rgba(255,255,255,.50); letter-spacing: .10em; text-transform: uppercase; }
 
-/* ── EMAIL GATE ──────────────────────────────────────────────────────── */
+/* EMAIL GATE */
 .gate-card {
-  background: var(--surface);
-  border: 1.5px solid var(--border);
-  border-radius: var(--radius-lg);
-  padding: 22px 20px;
-  box-shadow: var(--sh-md);
+  background: var(--surface); border: 1.5px solid var(--border);
+  border-radius: var(--radius-lg); padding: 22px 20px; box-shadow: var(--sh-md);
 }
-.gate-heading {
-  font-size: 1.05rem;
-  font-weight: 800;
-  color: var(--navy);
-  margin-bottom: 5px;
-  letter-spacing: -.02em;
+.gate-heading { font-size: 1.05rem; font-weight: 800; color: var(--navy); margin-bottom: 5px; letter-spacing: -.02em; }
+.gate-sub     { font-size: 0.82rem; color: var(--muted); line-height: 1.55; margin-bottom: 18px; }
+.field-label  { display: block; font-size: 0.77rem; font-weight: 600; color: var(--text); margin-bottom: 5px; letter-spacing: .01em; }
+.field-input  {
+  width: 100%; padding: 11px 13px; border: 1.5px solid var(--border); border-radius: 9px;
+  font-family: inherit; font-size: 0.93rem; color: var(--text); background: var(--bg);
+  transition: border-color .15s, box-shadow .15s; margin-bottom: 11px; outline: none;
 }
-.gate-sub {
-  font-size: 0.82rem;
-  color: var(--muted);
-  line-height: 1.55;
-  margin-bottom: 18px;
-}
-.field-label {
-  display: block;
-  font-size: 0.77rem;
-  font-weight: 600;
-  color: var(--text);
-  margin-bottom: 5px;
-  letter-spacing: .01em;
-}
-.field-input {
-  width: 100%;
-  padding: 11px 13px;
-  border: 1.5px solid var(--border);
-  border-radius: 9px;
-  font-family: inherit;
-  font-size: 0.93rem;
-  color: var(--text);
-  background: var(--bg);
-  transition: border-color .15s, box-shadow .15s;
-  margin-bottom: 11px;
-  outline: none;
-}
-.field-input:focus {
-  border-color: var(--accent);
-  box-shadow: 0 0 0 3px rgba(232,76,46,.10);
-}
+.field-input:focus { border-color: var(--accent); box-shadow: 0 0 0 3px rgba(232,76,46,.10); }
 .kvkk-row {
-  display: flex;
-  gap: 10px;
-  align-items: flex-start;
-  margin-bottom: 15px;
-  padding: 11px 12px;
-  background: var(--bg);
-  border-radius: 9px;
-  border: 1.5px solid var(--border);
+  display: flex; gap: 10px; align-items: flex-start;
+  margin-bottom: 15px; padding: 11px 12px;
+  background: var(--bg); border-radius: 9px; border: 1.5px solid var(--border);
 }
-.kvkk-row input[type="checkbox"] {
-  width: 17px; height: 17px;
-  accent-color: var(--accent);
-  flex-shrink: 0;
-  margin-top: 2px;
-  cursor: pointer;
-}
-.kvkk-row label {
-  font-size: 0.75rem;
-  color: var(--muted);
-  line-height: 1.55;
-  cursor: pointer;
-}
+.kvkk-row input[type="checkbox"] { width: 17px; height: 17px; accent-color: var(--accent); flex-shrink: 0; margin-top: 2px; cursor: pointer; }
+.kvkk-row label { font-size: 0.75rem; color: var(--muted); line-height: 1.55; cursor: pointer; }
 .kvkk-row label a { color: var(--accent); text-underline-offset: 2px; }
 .error-msg {
-  font-size: 0.78rem;
-  color: #DC2626;
-  padding: 8px 12px;
-  background: #FEF2F2;
-  border: 1px solid #FECACA;
-  border-radius: 8px;
-  margin-bottom: 10px;
-  display: none;
+  font-size: 0.78rem; color: #DC2626;
+  padding: 8px 12px; background: #FEF2F2; border: 1px solid #FECACA;
+  border-radius: 8px; margin-bottom: 10px; display: none;
 }
-/* ── Privacy Modal ─────────────────────────────────────────────────── */
+
+/* MODAL */
 .modal-overlay {
-  display: none;
-  position: fixed;
-  inset: 0;
-  background: rgba(10,35,66,.55);
-  z-index: 1000;
-  align-items: center;
-  justify-content: center;
-  padding: 16px;
+  display: none; position: fixed; inset: 0;
+  background: rgba(10,35,66,.55); z-index: 1000;
+  align-items: center; justify-content: center; padding: 16px;
 }
 .modal-overlay.open { display: flex; }
 .modal-box {
-  background: var(--surface);
-  border-radius: var(--radius-lg);
-  max-width: 540px;
-  width: 100%;
-  max-height: 82vh;
-  display: flex;
-  flex-direction: column;
-  box-shadow: var(--sh-lg);
+  background: var(--surface); border-radius: var(--radius-lg);
+  max-width: 540px; width: 100%; max-height: 82vh;
+  display: flex; flex-direction: column; box-shadow: var(--sh-lg);
 }
 .modal-head {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 18px 20px 14px;
-  border-bottom: 1px solid var(--border);
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 18px 20px 14px; border-bottom: 1px solid var(--border);
 }
 .modal-head h3 { font-size: 1rem; font-weight: 800; color: var(--navy); letter-spacing: -.02em; }
-.modal-close {
-  width: 30px; height: 30px;
-  border: none; background: var(--bg);
-  border-radius: 8px; cursor: pointer;
-  font-size: 1rem; color: var(--muted);
-  display: flex; align-items: center; justify-content: center;
-}
+.modal-close { width: 30px; height: 30px; border: none; background: var(--bg); border-radius: 8px; cursor: pointer; font-size: 1rem; color: var(--muted); display: flex; align-items: center; justify-content: center; }
 .modal-close:hover { background: var(--border); }
-.modal-body {
-  overflow-y: auto;
-  padding: 18px 20px 22px;
-  font-size: 0.82rem;
-  color: var(--text);
-  line-height: 1.65;
-}
+.modal-body { overflow-y: auto; padding: 18px 20px 22px; font-size: 0.82rem; color: var(--text); line-height: 1.65; }
 .modal-body h4 { font-size: 0.85rem; font-weight: 700; color: var(--navy); margin: 14px 0 5px; }
-.modal-body p { margin-bottom: 8px; }
+.modal-body p  { margin-bottom: 8px; }
 .modal-body ul { padding-left: 18px; margin-bottom: 8px; }
 .modal-body ul li { margin-bottom: 3px; }
 
-/* ── RESULT ──────────────────────────────────────────────────────────── */
-.result-header {
-  text-align: center;
-  padding: 24px 0 18px;
-}
-.result-header h2 {
-  font-size: 1.45rem;
-  font-weight: 900;
-  color: var(--navy);
-  letter-spacing: -.03em;
-  text-wrap: balance;
-}
-.result-header p {
-  font-size: 0.85rem;
-  color: var(--muted);
-  margin-top: 6px;
-  line-height: 1.5;
-}
+/* RESULT */
+.result-header { text-align: center; padding: 24px 0 18px; }
+.result-header h2 { font-size: 1.45rem; font-weight: 900; color: var(--navy); letter-spacing: -.03em; text-wrap: balance; }
+.result-header p  { font-size: 0.85rem; color: var(--muted); margin-top: 6px; line-height: 1.5; }
 .success-pill {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 7px;
-  font-size: 0.8rem;
-  font-weight: 600;
-  color: #065F46;
-  background: #ECFDF5;
-  border: 1px solid #A7F3D0;
-  border-radius: 9px;
-  padding: 9px 14px;
-  margin-bottom: 14px;
+  display: flex; align-items: center; justify-content: center; gap: 7px;
+  font-size: 0.8rem; font-weight: 600; color: #065F46;
+  background: #ECFDF5; border: 1px solid #A7F3D0;
+  border-radius: 9px; padding: 9px 14px; margin-bottom: 14px;
 }
-.section-label {
-  font-size: 0.68rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: .1em;
-  color: var(--muted);
-  margin: 18px 0 9px;
-}
-.dim-list {
-  background: var(--surface);
-  border: 1.5px solid var(--border);
-  border-radius: var(--radius);
-  overflow: hidden;
-  box-shadow: var(--sh-sm);
-}
-.dim-row {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  padding: 11px 14px;
-  border-bottom: 1px solid #F0F4F8;
-}
+.section-label { font-size: 0.68rem; font-weight: 700; text-transform: uppercase; letter-spacing: .1em; color: var(--muted); margin: 18px 0 9px; }
+.dim-list { background: var(--surface); border: 1.5px solid var(--border); border-radius: var(--radius); overflow: hidden; box-shadow: var(--sh-sm); }
+.dim-row  { display: flex; align-items: center; gap: 10px; padding: 11px 14px; border-bottom: 1px solid #F0F4F8; }
 .dim-row:last-child { border-bottom: none; }
 .dim-icon { font-size: 1rem; flex-shrink: 0; width: 20px; text-align: center; }
-.dim-name {
-  font-size: 0.82rem;
-  font-weight: 500;
-  color: var(--text);
-  flex: 1;
-  min-width: 0;
-}
-.dim-bar-wrap {
-  width: 80px;
-  background: #EEF2F7;
-  border-radius: 4px;
-  height: 6px;
-  flex-shrink: 0;
-}
-.dim-bar {
-  height: 6px;
-  border-radius: 4px;
-  transition: width .5s cubic-bezier(.4,0,.2,1);
-}
-.dim-val {
-  font-size: 0.82rem;
-  font-weight: 700;
-  min-width: 28px;
-  text-align: right;
-  flex-shrink: 0;
-  font-variant-numeric: tabular-nums;
-}
+.dim-name { font-size: 0.82rem; font-weight: 500; color: var(--text); flex: 1; min-width: 0; }
+.dim-bar-wrap { width: 80px; background: #EEF2F7; border-radius: 4px; height: 6px; flex-shrink: 0; }
+.dim-bar      { height: 6px; border-radius: 4px; transition: width .5s cubic-bezier(.4,0,.2,1); }
+.dim-val      { font-size: 0.82rem; font-weight: 700; min-width: 28px; text-align: right; flex-shrink: 0; font-variant-numeric: tabular-nums; }
 
-/* ── PRIORITY BOX ────────────────────────────────────────────────────── */
-.priority-box {
-  background: #FFFBEB;
-  border: 1.5px solid #FCD34D;
-  border-radius: var(--radius);
-  padding: 14px 15px;
-  margin: 10px 0;
+/* CTA BOX */
+@keyframes ctaPulse {
+  0%, 100% { box-shadow: 0 4px 20px rgba(232,76,46,.45), 0 0 0 0   rgba(232,76,46,.35); }
+  50%       { box-shadow: 0 6px 28px rgba(232,76,46,.55), 0 0 0 8px rgba(232,76,46,.00); }
 }
-.priority-box strong {
-  display: block;
-  font-size: 0.87rem;
-  font-weight: 700;
-  color: #92400E;
-  margin-bottom: 4px;
-}
-.priority-box p {
-  font-size: 0.79rem;
-  color: #78350F;
-  line-height: 1.55;
-}
-
-/* ── CTA BOX ─────────────────────────────────────────────────────────── */
 .cta-box {
-  background: linear-gradient(135deg, var(--navy) 0%, #0e3266 100%);
-  border-radius: var(--radius-lg);
-  padding: 22px 20px;
-  text-align: center;
-  margin-top: 14px;
-  box-shadow: var(--sh-md);
-  position: relative;
-  overflow: hidden;
+  background: linear-gradient(145deg, #071b36 0%, #0d2c5c 45%, #0f3572 80%, #0b2548 100%);
+  border-radius: var(--radius-lg); padding: 28px 24px;
+  text-align: center; margin-top: 18px;
+  box-shadow: 0 16px 48px rgba(10,35,66,.30), 0 4px 16px rgba(10,35,66,.15);
+  position: relative; overflow: hidden;
 }
 .cta-box::before {
-  content: '';
-  position: absolute;
-  top: -40px; right: -40px;
-  width: 140px; height: 140px;
-  background: radial-gradient(circle, rgba(232,76,46,.20) 0%, transparent 70%);
+  content: ''; position: absolute; top: -50px; right: -50px;
+  width: 180px; height: 180px;
+  background: radial-gradient(circle, rgba(232,76,46,.25) 0%, transparent 68%);
   pointer-events: none;
 }
-.cta-box-label {
-  font-size: 0.68rem;
-  font-weight: 700;
-  color: rgba(255,255,255,.45);
-  letter-spacing: .10em;
-  text-transform: uppercase;
-  margin-bottom: 8px;
+.cta-box::after {
+  content: ''; position: absolute; bottom: -40px; left: -30px;
+  width: 130px; height: 130px;
+  background: radial-gradient(circle, rgba(59,130,246,.12) 0%, transparent 70%);
+  pointer-events: none;
 }
-.cta-box-title {
-  font-size: 1.05rem;
-  font-weight: 800;
-  color: #fff;
-  margin-bottom: 7px;
-  letter-spacing: -.02em;
-  text-wrap: balance;
-}
-.cta-box p {
-  font-size: 0.81rem;
-  color: rgba(255,255,255,.60);
-  margin-bottom: 16px;
-  line-height: 1.55;
-}
-.cta-box a {
-  display: inline-block;
-  background: var(--accent);
-  color: #fff;
-  font-weight: 700;
-  font-size: 0.92rem;
-  padding: 13px 28px;
-  border-radius: 10px;
-  text-decoration: none;
+.cta-box-label { font-size: 0.72rem; font-weight: 800; color: rgba(255,255,255,.65); letter-spacing: .14em; text-transform: uppercase; margin-bottom: 10px; }
+.cta-box-title { font-size: 1.15rem; font-weight: 800; color: #fff; margin-bottom: 8px; letter-spacing: -.02em; text-wrap: balance; }
+.cta-box p     { font-size: 0.81rem; color: rgba(255,255,255,.60); margin-bottom: 16px; line-height: 1.55; }
+.cta-primary-btn {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: linear-gradient(135deg, #E84C2E 0%, #d94428 100%);
+  color: #fff; font-weight: 800; font-size: 1rem;
+  padding: 15px 36px; border-radius: 12px;
+  text-decoration: none; letter-spacing: -.01em;
+  animation: ctaPulse 2.4s ease infinite;
   transition: background .15s, transform .12s;
-  box-shadow: 0 3px 12px rgba(232,76,46,.40);
+  position: relative; z-index: 1; margin-bottom: 14px;
 }
-.cta-box a:hover {
-  background: var(--accent-dk);
-  transform: translateY(-1px);
+.cta-primary-btn:hover {
+  background: linear-gradient(135deg, #d94428 0%, #c03820 100%);
+  transform: translateY(-2px); animation-play-state: paused;
+  box-shadow: 0 8px 32px rgba(232,76,46,.55);
 }
+.cta-divider { font-size: 0.72rem; color: rgba(255,255,255,.35); margin: 0 0 12px; letter-spacing: .04em; }
+.cta-linkedin {
+  display: inline-flex; align-items: center; gap: 8px;
+  font-size: 0.83rem; font-weight: 600; color: rgba(255,255,255,.80);
+  background: rgba(255,255,255,.08); border: 1.5px solid rgba(255,255,255,.20);
+  padding: 9px 20px; border-radius: 8px; text-decoration: none;
+  transition: background .15s, border-color .15s;
+}
+.cta-linkedin:hover { background: rgba(255,255,255,.14); border-color: rgba(255,255,255,.35); }
 
-/* ── FOOTER ──────────────────────────────────────────────────────────── */
-footer {
-  text-align: center;
-  padding: 24px 16px;
-  font-size: 0.72rem;
-  color: #94A3B8;
-  border-top: 1px solid var(--border);
-  margin-top: 48px;
-}
+/* FOOTER */
+footer { text-align: center; padding: 24px 16px; font-size: 0.72rem; color: #94A3B8; border-top: 1px solid var(--border); margin-top: 48px; }
 footer a { color: #94A3B8; text-underline-offset: 2px; }
 
-/* ── RESPONSIVE ──────────────────────────────────────────────────────── */
+/* RESPONSIVE */
 @media (max-width: 480px) {
-  .hero { padding: 28px 16px 36px; }
-  .hero h1 { font-size: 1.45rem; }
-  .opt-btn { padding: 10px 2px; }
-  .opt-num { font-size: 1rem; }
-  .opt-label { font-size: 0.52rem; }
-  .score-num { font-size: 3.4rem; }
+  .hero { padding: 32px 16px 42px; }
+  .hero h1 { font-size: 1.85rem; }
+  .hero-sub { font-size: 0.87rem; }
+  .chip { font-size: 0.70rem; padding: 5px 11px; }
+  .progress-meta { font-size: 0.78rem; }
+  .q-options { grid-template-columns: repeat(3, 1fr); gap: 6px; }
+  .opt-btn { padding: 13px 4px; }
+  .opt-num  { font-size: 1.05rem; }
+  .opt-label { font-size: 0.62rem; opacity: .80; }
+  .q-card { padding: 18px 15px; }
+  .score-num { font-size: 3.8rem; }
+  .score-level { font-size: 0.78rem; padding: 3px 12px; }
+  .cta-box { padding: 22px 18px; }
+  .cta-primary-btn { font-size: 0.95rem; padding: 14px 28px; display: block; text-align: center; }
   .dim-bar-wrap { width: 56px; }
 }
 </style>
@@ -794,107 +497,79 @@ footer a { color: #94A3B8; text-underline-offset: 2px; }
       <span class="brand-sub">by EVOLIXO</span>
     </div>
   </a>
-  <span class="top-bar-badge">Ücretsiz Test</span>
+  <span class="top-bar-badge">Ucretsiz Test</span>
 </div>
 
 <!-- HERO -->
 <div class="hero" id="main-hero">
-  <div class="hero-eyebrow">Dijital Olgunluk Değerlendirmesi</div>
-  <h1>Şirketiniz dijital<br>dönüşüme <em>hazır mı?</em></h1>
-  <p class="hero-sub">DigiScore ile 8 soruda dijital olgunluk seviyenizi öğrenin — kayıt gerekmez, 3 dakika.</p>
+  <div class="hero-eyebrow">Dijital Olgunluk Degerlendirmesi</div>
+  <h1>Sirketiniz dijital<br>donusume <em>hazir mi?</em></h1>
+  <p class="hero-sub">3 dakikada doldurun — aninda puaninizi ve 3 oncelikli adimi alin.</p>
   <div class="hero-chips">
-    <span class="chip">⏱ 3 dakika</span>
-    <span class="chip">8 boyut analizi</span>
-    <span class="chip">Anında sonuç</span>
+    <span class="chip">&#8987; 3 dakika</span>
+    <span class="chip">7 boyut analizi</span>
+    <span class="chip">Aninda sonuc</span>
   </div>
 </div>
 
 <!-- STEP INDICATOR -->
 <div class="steps-bar" id="steps-bar">
-  <div class="step-item active" id="si-1">
-    <div class="step-dot">1</div>
-    <span class="step-label">Test</span>
-  </div>
-  <div class="step-item" id="si-2">
-    <div class="step-dot">2</div>
-    <span class="step-label">E-posta</span>
-  </div>
-  <div class="step-item" id="si-3">
-    <div class="step-dot">3</div>
-    <span class="step-label">Sonuç</span>
-  </div>
+  <div class="step-item active" id="si-1"><div class="step-dot">1</div><span class="step-label">Test</span></div>
+  <div class="step-item"        id="si-2"><div class="step-dot">2</div><span class="step-label">E-posta</span></div>
+  <div class="step-item"        id="si-3"><div class="step-dot">3</div><span class="step-label">Sonuc</span></div>
 </div>
 
 <div class="page">
 
   <!-- STEP 1: QUESTIONS -->
   <div class="step active" id="step-questions">
-
     <div class="progress-wrap">
       <div class="progress-meta">
-        <span id="progress-text">0 / 8 soru yanıtlandı</span>
+        <span id="progress-text">Soru 1 / 7</span>
         <span id="progress-pct">0%</span>
       </div>
       <div class="progress-track">
         <div class="progress-fill" id="progress-fill"></div>
       </div>
     </div>
-
     <div id="questions-container"></div>
-
-    <button class="btn-primary" id="btn-calculate" disabled onclick="goToEmailGate()">
-      Tüm soruları yanıtlayın
-    </button>
-
     <p style="text-align:center;font-size:.72rem;color:#94A3B8;margin-top:11px;">
-      Bu aşamada kişisel bilgi toplanmıyor.
+      Bu asamada kisisel bilgi toplanmiyor.
     </p>
   </div>
 
   <!-- STEP 2: EMAIL GATE -->
   <div class="step" id="step-email">
-
-    <div style="padding: 24px 0 16px; text-align: center;">
-      <div style="font-size:0.72rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-bottom:8px;">DigiScore Hızlı Sonuç</div>
-      <h2 style="font-size:1.4rem;font-weight:900;color:var(--navy);letter-spacing:-.03em;margin-bottom:6px;">Puanınız hesaplandı</h2>
-      <p style="font-size:0.85rem;color:var(--muted);line-height:1.5;">E-posta adresinizi bırakın — 8 boyutun tam kırılımını görün.</p>
+    <div style="padding:24px 0 16px;text-align:center;">
+      <div style="font-size:0.72rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-bottom:8px;">DigiScore Hizli Sonuc</div>
+      <h2 style="font-size:1.4rem;font-weight:900;color:var(--navy);letter-spacing:-.03em;margin-bottom:6px;">Puaniniz hesaplandi</h2>
+      <p style="font-size:0.85rem;color:var(--muted);line-height:1.5;">E-posta adresinizi birakin — 7 boyutun tam kirilimini gorun.</p>
     </div>
-
     <div class="score-card" id="teaser-score">
       <div class="score-main">
-        <span class="score-num" id="teaser-num">—</span>
+        <span class="score-num" id="teaser-num">0.0</span>
         <span class="score-denom">/5</span>
       </div>
       <div class="score-level" id="teaser-level"></div>
       <div class="score-label">DigiScore</div>
     </div>
-
     <div class="gate-card">
-      <div class="gate-heading">Detaylı kırılımınızı alın</div>
-      <div class="gate-sub">8 boyutun tam analizi + öncelikli geliştirme önerisi anında ekrana gelecek.</div>
-
+      <div class="gate-heading">Detayli kirilimunuzu alin</div>
+      <div class="gate-sub">7 boyutun tam analizi ve oncelikli gelistirme onerisi aninda ekrana gelecek.</div>
       <div id="error-msg" class="error-msg"></div>
-
       <label class="field-label" for="inp-name">Ad Soyad <span style="color:var(--muted);font-weight:400">(opsiyonel)</span></label>
-      <input class="field-input" type="text" id="inp-name" placeholder="Ahmet Yılmaz" autocomplete="name">
-
+      <input class="field-input" type="text" id="inp-name" placeholder="Ahmet Yilmaz" autocomplete="name">
       <label class="field-label" for="inp-email">E-posta adresiniz <span style="color:var(--accent)">*</span></label>
       <input class="field-input" type="email" id="inp-email" placeholder="ahmet@sirketiniz.com" autocomplete="email">
-
       <div class="kvkk-row">
         <input type="checkbox" id="kvkk-check">
         <label for="kvkk-check">
-          Kişisel verilerimin DigiScore hizmetini iyileştirme ve bilgilendirme amacıyla işlenmesine onay veriyorum.
-          <a href="#" onclick="openPrivacy(); return false;">Gizlilik Politikası</a>
+          Kisisel verilerimin DigiScore hizmetini iyilestirme ve bilgilendirme amaciyla islenmesine onay veriyorum.
+          <a href="#" onclick="openPrivacy(); return false;">Gizlilik Politikasi</a>
         </label>
       </div>
-
-      <button class="btn-primary" onclick="submitEmail()">
-        Sonuçlarımı Göster →
-      </button>
-      <button class="btn-ghost" onclick="goBack()">
-        ← Soruları yeniden yanıtla
-      </button>
+      <button class="btn-primary" onclick="submitEmail()">Sonuclarimi Goster &#8594;</button>
+      <button class="btn-ghost"    onclick="goBack()">&#8592; Sorulara don</button>
     </div>
   </div>
 
@@ -903,43 +578,62 @@ footer a { color: #94A3B8; text-underline-offset: 2px; }
 
     <div class="result-header">
       <h2 id="result-greeting">DigiScore Raporunuz</h2>
-      <p>Dijital olgunluk puanınız ve 8 boyut kırılımı aşağıda.</p>
+      <p>Dijital olgunluk puaniniz ve 7 boyut kirilimi asagida.</p>
+    </div>
+
+    <div style="display:flex;justify-content:center;gap:6px;flex-wrap:wrap;margin-bottom:14px;">
+      <span style="font-size:.72rem;font-weight:600;color:#065F46;background:#ECFDF5;border:1px solid #A7F3D0;border-radius:20px;padding:4px 12px;white-space:nowrap;">Suphi Ramazanoglu</span>
+      <span style="font-size:.72rem;font-weight:600;color:#1E3A5F;background:#EFF6FF;border:1px solid #BFDBFE;border-radius:20px;padding:4px 12px;white-space:nowrap;">7 boyut analizi</span>
+      <span style="font-size:.72rem;font-weight:600;color:#5B21B6;background:#F5F3FF;border:1px solid #DDD6FE;border-radius:20px;padding:4px 12px;white-space:nowrap;">Tamamen ucretsiz</span>
     </div>
 
     <div class="success-pill">
-      <span>✅</span>
-      <span>Sonuçlarınız e-posta adresinize de gönderilecektir.</span>
+      <span>&#10003;</span>
+      <span>Sonuclariniz e-posta adresinize de gonderilecektir.</span>
     </div>
 
-    <div class="score-card">
+    <div class="score-card" id="result-score-card">
       <div class="score-main">
-        <span class="score-num" id="result-num">—</span>
+        <span class="score-num" id="result-num">0.0</span>
         <span class="score-denom">/5</span>
       </div>
       <div class="score-level" id="result-level"></div>
       <div class="score-label" id="result-desc"></div>
     </div>
 
-    <div class="section-label">8 Boyut Kırılımı</div>
+    <div class="section-label">7 Boyut Kirilimi</div>
     <div class="dim-list" id="dim-list"></div>
 
-    <div class="priority-box" id="priority-box">
-      <strong id="priority-title"></strong>
-      <p id="priority-text"></p>
+    <div id="priority-box" style="background:#FFF7ED;border:2px solid #F97316;border-radius:12px;padding:16px;margin:12px 0;position:relative;overflow:hidden;">
+      <div style="position:absolute;top:-20px;right:-20px;width:80px;height:80px;background:radial-gradient(circle,rgba(249,115,22,.15) 0%,transparent 70%);pointer-events:none;"></div>
+      <div style="display:flex;align-items:flex-start;gap:10px;margin-bottom:6px;">
+        <span style="font-size:1.1rem;flex-shrink:0;margin-top:1px;">&#9889;</span>
+        <div style="flex:1;">
+          <div style="font-size:.68rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#C2410C;margin-bottom:3px;">Bu boyut dijital donusumunuzu yavaslatıyor</div>
+          <strong id="priority-title" style="display:block;font-size:.92rem;font-weight:800;color:#7C2D12;line-height:1.3;"></strong>
+        </div>
+      </div>
+      <p id="priority-text" style="font-size:.79rem;color:#78350F;line-height:1.55;margin-bottom:12px;padding-left:30px;"></p>
+      <div style="padding-left:30px;">
+        <a href="https://suphiramazanoglu.com/lets-talk" target="_blank" style="display:inline-flex;align-items:center;gap:6px;font-size:.78rem;font-weight:700;color:#C2410C;background:rgba(249,115,22,.10);border:1.5px solid rgba(249,115,22,.35);border-radius:8px;padding:7px 14px;text-decoration:none;transition:background .15s;" onmouseover="this.style.background='rgba(249,115,22,.18)'" onmouseout="this.style.background='rgba(249,115,22,.10)'">
+          Bu konuda ozel yol haritasi almak ister misiniz? &#8594;
+        </a>
+      </div>
     </div>
 
     <div class="cta-box">
-      <div class="cta-box-label">Bir sonraki adım</div>
-      <div class="cta-box-title">Tam DigiScore Değerlendirmesi</div>
-      <p>67 soruluk derinlemesine analizle ayrıntılı yol haritanızı ve sektör benchmark karşılaştırmanızı alın.</p>
-      <a href="https://supram47.github.io/digiscore/" target="_blank">
-        Tam Değerlendirmeye Başla →
+      <div class="cta-box-label">Bir sonraki adim</div>
+      <div class="cta-box-title">Skorunuzu birlikte analiz edelim</div>
+      <p>30 dakikalik ucretsiz gorusmede puaninizin ne anlama geldigini ve oncelikli adimlarinizi konusalim.</p>
+      <a href="https://suphiramazanoglu.com/lets-talk" target="_blank" class="cta-primary-btn">&#128197; Suphi ile Gorusme Planla &#8594;</a>
+      <div class="cta-divider">veya LinkedIn'de baglanalim</div>
+      <a href="https://linkedin.com/in/suphiramazanoglu" target="_blank" class="cta-linkedin">
+        <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="rgba(255,255,255,.80)" aria-hidden="true"><path d="M20.447 20.452H16.89v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a1.969 1.969 0 0 1-1.972-1.97 1.97 1.97 0 1 1 1.972 1.97zm1.99 13.019H3.347V9h3.98v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+        Suphi Ramazanoglu
       </a>
     </div>
 
-    <button class="btn-ghost" onclick="restart()" style="margin-top:14px;">
-      Testi Yeniden Yap
-    </button>
+    <button class="btn-ghost" onclick="restart()" style="margin-top:14px;">Testi Yeniden Yap</button>
 
   </div>
 
@@ -949,199 +643,246 @@ footer a { color: #94A3B8; text-underline-offset: 2px; }
 <div class="modal-overlay" id="privacy-modal" onclick="if(event.target===this)closePrivacy()">
   <div class="modal-box">
     <div class="modal-head">
-      <h3>Gizlilik Politikası</h3>
-      <button class="modal-close" onclick="closePrivacy()">✕</button>
+      <h3>Gizlilik Politikasi</h3>
+      <button class="modal-close" onclick="closePrivacy()">&#x2715;</button>
     </div>
     <div class="modal-body">
-      <p><strong>Veri Sorumlusu:</strong> Suphi Ramazanoğlu<br>
-      <strong>İletişim:</strong> info@suphiramazanoglu.com</p>
-
+      <p><strong>Veri Sorumlusu:</strong> Suphi Ramazanoglu<br><strong>Iletisim:</strong> info@suphiramazanoglu.com</p>
       <h4>Toplanan Veriler</h4>
-      <p>DigiScore hızlı testi sırasında yalnızca aşağıdaki veriler toplanır:</p>
-      <ul>
-        <li>Ad Soyad (opsiyonel)</li>
-        <li>E-posta adresi</li>
-        <li>Test yanıtları (8 boyut puanları)</li>
-        <li>Tarayıcı türü ve tahmini konum (ülke düzeyinde)</li>
-      </ul>
-
-      <h4>Kullanım Amacı</h4>
-      <ul>
-        <li>DigiScore sonuçlarınızı size iletmek</li>
-        <li>Dijital dönüşüm içerikleri ve hizmetler hakkında bilgilendirmek</li>
-        <li>Platform kalitesini iyileştirmek</li>
-      </ul>
-
-      <h4>Saklama Süresi</h4>
-      <p>Verileriniz, silinmesini talep etmediğiniz sürece 2 yıl boyunca güvenli şekilde saklanır.</p>
-
-      <h4>Haklarınız (KVKK Madde 11)</h4>
-      <p>Verilerinize erişme, düzeltme, silme veya işlenmesini durdurma hakkına sahipsiniz. Talepleriniz için: <strong>info@suphiramazanoglu.com</strong></p>
-
-      <h4>Üçüncü Taraf Paylaşım</h4>
-      <p>Verileriniz hiçbir koşulda üçüncü taraflarla ticari amaçla paylaşılmaz. Altyapı sağlayıcısı olarak Supabase (ABD) kullanılmaktadır; GDPR standart maddeleri geçerlidir.</p>
-
-      <p style="margin-top:14px;color:var(--muted);font-size:.75rem;">Son güncelleme: Temmuz 2026</p>
+      <ul><li>Ad Soyad (opsiyonel)</li><li>E-posta adresi</li><li>Test yanitlari (7 boyut puanlari)</li><li>Tarayici turu ve tahmini konum (ulke duzeyinde)</li></ul>
+      <h4>Kullanim Amaci</h4>
+      <ul><li>DigiScore sonuclarinizi size iletmek</li><li>Dijital donusum icerikleri ve hizmetler hakkinda bilgilendirmek</li><li>Platform kalitesini iyilestirmek</li></ul>
+      <h4>Saklama Suresi</h4>
+      <p>Verileriniz, silinmesini talep etmediginiz surece 2 yil boyunca guvenli sekilde saklanir.</p>
+      <h4>Haklariniz (KVKK Madde 11)</h4>
+      <p>Verilerinize erisim, duzeltme, silme veya islenmesini durdurma hakkina sahipsiniz. Talepleriniz icin: <strong>info@suphiramazanoglu.com</strong></p>
+      <h4>Ucuncu Taraf Paylasim</h4>
+      <p>Verileriniz hicbir kosulda ucuncu taraflarla ticari amacla paylasilmaz. Altyapi saglayicisi olarak Supabase (ABD) kullanilmaktadir; GDPR standart maddeleri gecerlidir.</p>
+      <p style="margin-top:14px;color:var(--muted);font-size:.75rem;">Son guncelleme: Temmuz 2026</p>
     </div>
   </div>
 </div>
 
 <footer>
-  <strong style="color:#64748B">DigiScore</strong> by EVOLIXO &nbsp;·&nbsp;
-  Suphi Ramazanoğlu — Digital Transformation Consultant &nbsp;·&nbsp;
-  <a href="#" onclick="openPrivacy(); return false;">Gizlilik</a> &nbsp;·&nbsp;
+  <strong style="color:#64748B">DigiScore</strong> by EVOLIXO &nbsp;&#183;&nbsp;
+  Suphi Ramazanoglu - Digital Transformation Consultant &nbsp;&#183;&nbsp;
+  <a href="#" onclick="openPrivacy(); return false;">Gizlilik</a> &nbsp;&#183;&nbsp;
   <a href="https://suphiramazanoglu.com" target="_blank">suphiramazanoglu.com</a>
 </footer>
 
 <script>
 function openPrivacy()  { document.getElementById('privacy-modal').classList.add('open'); }
 function closePrivacy() { document.getElementById('privacy-modal').classList.remove('open'); }
-document.addEventListener('keydown', e => { if (e.key === 'Escape') closePrivacy(); });
+document.addEventListener('keydown', function(e) { if (e.key === 'Escape') closePrivacy(); });
 
-// ── CONFIG ────────────────────────────────────────────────────────────
-const SUPABASE_URL  = 'https://vrdoiqeyhpxzzyrjxrmm.supabase.co';
-const SUPABASE_ANON = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InZyZG9pcWV5aHB4enp5cmp4cm1tIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODEwMjA5NDAsImV4cCI6MjA5NjU5Njk0MH0.-mm_Hvi3G8JBUdLTaUd1A1SANCCgKMQLJ3L-6UMkkm4';
+var SUPABASE_URL  = 'https://vrdoiqeyhpxzzyrjxrmm.supabase.co';
+var SUPABASE_ANON = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InZyZG9pcWV5aHB4enp5cmp4cm1tIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODEwMjA5NDAsImV4cCI6MjA5NjU5Njk0MH0.-mm_Hvi3G8JBUdLTaUd1A1SANCCgKMQLJ3L-6UMkkm4';
 
-// ── SORULAR ───────────────────────────────────────────────────────────
-const QUESTIONS = [
-  { key: 'strateji',  icon: '🎯', dim: 'Strateji & Liderlik',
-    q: 'Dijital dönüşüm hedefleriniz ve öncelikleri ekibiniz tarafından net biçimde biliniyor mu?' },
-  { key: 'teknoloji', icon: '⚙️', dim: 'Teknoloji Altyapısı',
-    q: 'Yazılım ve operasyonel sistemleriniz birbiriyle ne kadar entegre çalışıyor?' },
-  { key: 'veri',      icon: '📊', dim: 'Veri & Analitik',
-    q: 'Kararlarınızı veriye mi yoksa sezgiye mi dayandırıyorsunuz?' },
-  { key: 'surec',     icon: '🔄', dim: 'Süreç Olgunluğu',
-    q: 'Tekrarlayan iş süreçleriniz standartlaştırılmış ve dokümante edilmiş mi?' },
-  { key: 'siber',     icon: '🛡️', dim: 'Siber Güvenlik',
-    q: 'Veri güvenliği ve erişim politikalarınız tanımlı ve aktif olarak uygulanıyor mu?' },
-  { key: 'musteri',   icon: '👥', dim: 'Müşteri Deneyimi',
-    q: 'Müşteri geri bildirimlerini ne kadar hızlı toplayıp harekete geçirebiliyorsunuz?' },
-  { key: 'inovasyon', icon: '💡', dim: 'İnovasyon & Yatırım',
-    q: 'Yeni ürün veya hizmet geliştirme için ayrılmış zaman ve bütçeniz var mı?' },
-  { key: 'insan',     icon: '🌱', dim: 'Yetenek & Kültür',
-    q: 'Ekibiniz değişime ve yeni çalışma yöntemlerine ne kadar açık?' }
+// 7 SORU — Siber Guvenlik cikarildi, Surec ve Inovasyon yeniden yazildi
+var QUESTIONS = [
+  { key: 'strateji',  icon: '&#127919;', dim: 'Strateji ve Liderlik',
+    q: 'Dijital donusum hedefleriniz ve oncelikleri ekibiniz tarafindan net bicimde biliniyor mu?' },
+  { key: 'teknoloji', icon: '&#9881;&#65039;', dim: 'Teknoloji Altyapisi',
+    q: 'Yazilim ve operasyonel sistemleriniz birbiriyle ne kadar entegre calisiyor?' },
+  { key: 'veri',      icon: '&#128202;', dim: 'Veri ve Analitik',
+    q: 'Kararlarinizi veriye mi yoksa sezgiye mi dayandiriyorsunuz?' },
+  { key: 'surec',     icon: '&#128260;', dim: 'Surec Olgunlugu',
+    q: 'Tekrarlayan is sureclerinizin ne kadari tanimli bir akisa ve standart isleyise sahip?' },
+  { key: 'musteri',   icon: '&#128101;', dim: 'Musteri Deneyimi',
+    q: 'Musteri geri bildirimlerini ne kadar hizli toplayip harekete gecebiliyorsunuz?' },
+  { key: 'inovasyon', icon: '&#128161;', dim: 'Inovasyon ve Girisim',
+    q: 'Son 12 ayda yeni bir urun, hizmet veya is modeli icin pilot calismasi baslatildi mi?' },
+  { key: 'insan',     icon: '&#127807;', dim: 'Yetenek ve Kultur',
+    q: 'Ekibiniz degisime ve yeni calisma yontemlerine ne kadar acik?' }
 ];
 
-const SCALE = [
-  { v: 1, short: '1', label: 'Henüz\nbaşlamadı' },
-  { v: 2, short: '2', label: 'Bireysel\ngirişimler' },
-  { v: 3, short: '3', label: 'Kısmi\nuygulama' },
-  { v: 4, short: '4', label: 'Büyük\nölçüde var' },
+var SCALE = [
+  { v: 1, short: '1', label: 'Henuz\nbaslamadi' },
+  { v: 2, short: '2', label: 'Bireysel\ngirisimler' },
+  { v: 3, short: '3', label: 'Kismi\nuygulama' },
+  { v: 4, short: '4', label: 'Buyuk\nolcude var' },
   { v: 5, short: '5', label: 'Kurumsal\nstandart' }
 ];
 
-const LEVELS = [
-  { min: 1.0, max: 1.8, name: 'Seviye 1 — Başlangıç',  icon: '🔴', color: '#E74C3C', desc: 'Dijital dönüşüm farkındalığı düşük. Acil müdahale gerekiyor.' },
-  { min: 1.8, max: 2.6, name: 'Seviye 2 — Gelişmekte', icon: '🟠', color: '#E67E22', desc: 'Farkındalık oluştu, bazı girişimler başlatıldı. Stratejik yol haritası şart.' },
-  { min: 2.6, max: 3.4, name: 'Seviye 3 — Tanımlı',   icon: '🟡', color: '#D97706', desc: 'Süreçler tanımlı. Kurumsal ölçeğe geçme ve ölçüm adımına odaklanın.' },
-  { min: 3.4, max: 4.2, name: 'Seviye 4 — Yönetilen', icon: '🟢', color: '#059669', desc: 'Veriye dayalı kararlar alınıyor. Sektör ortalamasının üzerinde.' },
-  { min: 4.2, max: 5.1, name: 'Seviye 5 — Optimize',  icon: '🔵', color: '#2980B9', desc: 'Sürekli iyileştirme kültürü. Dijital lider konumundasınız.' }
+var LEVELS = [
+  { min: 1.0, max: 1.8, name: 'Seviye 1 - Baslangic',  icon: '&#128308;', color: '#E74C3C', desc: 'Dijital donusum farkindaligi dusuk. Acil mudahale gerekiyor.', levelClass: 'level-red' },
+  { min: 1.8, max: 2.6, name: 'Seviye 2 - Gelismekte', icon: '&#128992;', color: '#E67E22', desc: 'Farkindalik olustu, bazi girisimler baslatildi. Stratejik yol haritasi sart.', levelClass: 'level-yellow' },
+  { min: 2.6, max: 3.4, name: 'Seviye 3 - Tanimli',   icon: '&#128993;', color: '#D97706', desc: 'Surecler tanimli. Kurumsal olcege gecme ve olcum adimina odaklanin.', levelClass: 'level-yellow' },
+  { min: 3.4, max: 4.2, name: 'Seviye 4 - Yonetilen', icon: '&#129001;', color: '#059669', desc: 'Veriye dayali kararlar aliniyor. Sektor ortalamasinin uzerinde.', levelClass: 'level-green' },
+  { min: 4.2, max: 5.1, name: 'Seviye 5 - Optimize',  icon: '&#128309;', color: '#2980B9', desc: 'Surekli iyilestirme kulturu. Dijital lider konumundasiniz.', levelClass: 'level-green' }
 ];
 
-const DIM_COLORS = { 1: '#E74C3C', 2: '#E67E22', 3: '#D97706', 4: '#059669', 5: '#2980B9' };
+var DIM_COLORS = { 1: '#E74C3C', 2: '#E67E22', 3: '#D97706', 4: '#059669', 5: '#2980B9' };
 
-// ── STATE ─────────────────────────────────────────────────────────────
-const answers = {};
+var answers      = {};
+var currentIndex = 0;
+var isAnimating  = false;
 
-// ── STEP INDICATOR ────────────────────────────────────────────────────
 function setStep(n) {
-  [1,2,3].forEach(i => {
-    const el = document.getElementById('si-' + i);
+  [1,2,3].forEach(function(i) {
+    var el = document.getElementById('si-' + i);
     el.classList.remove('active','done');
     if (i < n) el.classList.add('done');
     if (i === n) el.classList.add('active');
   });
 }
 
-// ── INIT ──────────────────────────────────────────────────────────────
 function init() {
-  const container = document.getElementById('questions-container');
-  QUESTIONS.forEach((q, i) => {
-    const card = document.createElement('div');
-    card.className = 'q-card';
-    card.id = 'qcard-' + q.key;
-    card.innerHTML = `
-      <div class="q-head">
-        <span class="q-num">Soru ${i + 1} / ${QUESTIONS.length}</span>
-        <span class="q-dim">${q.icon} ${q.dim}</span>
-      </div>
-      <div class="q-text">${q.q}</div>
-      <div class="q-options">
-        ${SCALE.map(s => `
-          <button class="opt-btn" data-key="${q.key}" data-val="${s.v}"
-            onclick="selectAnswer('${q.key}', ${s.v}, this)">
-            <span class="opt-num">${s.short}</span>
-            <span class="opt-label">${s.label}</span>
-          </button>
-        `).join('')}
-      </div>
-    `;
-    container.appendChild(card);
-  });
+  var container = document.getElementById('questions-container');
+  container.innerHTML = '';
+
+  var card = document.createElement('div');
+  card.className = 'q-card';
+  card.id = 'q-single-card';
+  container.appendChild(card);
+
+  var backRow = document.createElement('div');
+  backRow.id = 'q-back-row';
+  backRow.innerHTML = '<button class="btn-back" id="btn-back-question" onclick="goBackQuestion()">&#8592; Onceki soru</button>';
+  container.appendChild(backRow);
+
+  currentIndex = 0;
+  isAnimating  = false;
+  showQuestion(0);
 }
 
-// ── SELECT ANSWER ─────────────────────────────────────────────────────
-function selectAnswer(key, val, btn) {
-  answers[key] = val;
-  const card = document.getElementById('qcard-' + key);
-  card.querySelectorAll('.opt-btn').forEach(b => b.classList.remove('selected'));
-  btn.classList.add('selected');
-  card.classList.add('answered');
+function showQuestion(index, direction) {
+  direction = direction || 'forward';
+  var q    = QUESTIONS[index];
+  var card = document.getElementById('q-single-card');
 
-  const count = Object.keys(answers).length;
-  const pct   = Math.round(count / QUESTIONS.length * 100);
-  document.getElementById('progress-text').textContent = `${count} / ${QUESTIONS.length} soru yanıtlandı`;
+  var pct = Math.round(index / QUESTIONS.length * 100);
+  document.getElementById('progress-text').textContent = 'Soru ' + (index + 1) + ' / ' + QUESTIONS.length;
   document.getElementById('progress-pct').textContent  = pct + '%';
   document.getElementById('progress-fill').style.width = pct + '%';
 
-  const btnCalc = document.getElementById('btn-calculate');
-  if (count === QUESTIONS.length) {
-    btnCalc.disabled = false;
-    btnCalc.textContent = 'Sonuçlarımı Hesapla →';
+  var backBtn = document.getElementById('btn-back-question');
+  if (backBtn) backBtn.style.display = index > 0 ? 'block' : 'none';
+
+  function buildCardHTML() {
+    var prevAnswer = answers[q.key];
+    var optionsHtml = SCALE.map(function(s) {
+      var sel = prevAnswer === s.v ? ' selected' : '';
+      return '<button class="opt-btn' + sel + '" onclick="selectAnswer(\'' + q.key + '\',' + s.v + ',this)">' +
+             '<span class="opt-num">' + s.short + '</span>' +
+             '<span class="opt-label">' + s.label + '</span>' +
+             '</button>';
+    }).join('');
+    return '<div class="q-head">' +
+           '<span class="q-num">Soru ' + (index+1) + ' / ' + QUESTIONS.length + '</span>' +
+           '<span class="q-dim">' + q.icon + ' ' + q.dim + '</span>' +
+           '</div>' +
+           '<div class="q-text">' + q.q + '</div>' +
+           '<div class="q-options">' + optionsHtml + '</div>';
   }
+
+  if (!card.dataset.loaded) {
+    card.innerHTML = buildCardHTML();
+    card.dataset.loaded = '1';
+    if (answers[q.key]) card.classList.add('answered');
+    else card.classList.remove('answered');
+    return;
+  }
+
+  isAnimating = true;
+  var outClass = direction === 'forward' ? 'q-slide-out-left' : 'q-slide-out-right';
+  card.classList.add(outClass);
+
+  setTimeout(function() {
+    card.classList.remove('q-slide-out-left','q-slide-out-right');
+    card.innerHTML = buildCardHTML();
+    if (answers[q.key]) card.classList.add('answered');
+    else card.classList.remove('answered');
+
+    var inClass = direction === 'forward' ? 'q-slide-in-right' : 'q-slide-in-left';
+    card.classList.add(inClass);
+    setTimeout(function() { card.classList.remove(inClass); isAnimating = false; }, 320);
+  }, 240);
 }
 
-// ── GET LEVEL ─────────────────────────────────────────────────────────
+function selectAnswer(key, val, btn) {
+  if (isAnimating) return;
+  answers[key] = val;
+
+  var card = document.getElementById('q-single-card');
+  card.querySelectorAll('.opt-btn').forEach(function(b) { b.classList.remove('selected'); });
+  btn.classList.add('selected');
+  card.classList.add('answered');
+
+  var count = Object.keys(answers).length;
+  var pct   = Math.round(count / QUESTIONS.length * 100);
+  document.getElementById('progress-pct').textContent  = pct + '%';
+  document.getElementById('progress-fill').style.width = pct + '%';
+
+  setTimeout(function() {
+    if (currentIndex < QUESTIONS.length - 1) {
+      currentIndex++;
+      showQuestion(currentIndex, 'forward');
+    } else {
+      goToEmailGate();
+    }
+  }, 420);
+}
+
+function goBackQuestion() {
+  if (isAnimating || currentIndex === 0) return;
+  currentIndex--;
+  showQuestion(currentIndex, 'backward');
+}
+
 function getLevel(score) {
-  return LEVELS.find(l => score >= l.min && score < l.max) || LEVELS[LEVELS.length - 1];
+  return LEVELS.find(function(l) { return score >= l.min && score < l.max; }) || LEVELS[LEVELS.length - 1];
 }
 
-// ── GO TO EMAIL GATE ──────────────────────────────────────────────────
-function goToEmailGate() {
-  const score = Object.values(answers).reduce((a, b) => a + b, 0) / QUESTIONS.length;
-  const lvl   = getLevel(score);
+function animateScore(targetId, endValue, duration) {
+  if (duration === undefined) duration = 1200;
+  var el = document.getElementById(targetId);
+  if (!el) return;
+  var start = performance.now();
+  function update(time) {
+    var elapsed  = time - start;
+    var progress = Math.min(elapsed / duration, 1);
+    var eased    = 1 - Math.pow(1 - progress, 3);
+    el.textContent = (endValue * eased).toFixed(1);
+    if (progress < 1) requestAnimationFrame(update);
+    else el.textContent = endValue.toFixed(1);
+  }
+  requestAnimationFrame(update);
+}
 
-  document.getElementById('teaser-num').textContent   = score.toFixed(1);
+function goToEmailGate() {
+  var score = Object.values(answers).reduce(function(a,b){ return a+b; }, 0) / QUESTIONS.length;
+  var lvl   = getLevel(score);
+
+  document.getElementById('teaser-num').textContent   = '0.0';
   document.getElementById('teaser-level').textContent = lvl.icon + ' ' + lvl.name;
 
   showStep('step-email');
   setStep(2);
   window.scrollTo({ top: 0, behavior: 'smooth' });
+  setTimeout(function() { animateScore('teaser-num', score, 900); }, 150);
 }
 
-// ── SUBMIT EMAIL ──────────────────────────────────────────────────────
 async function submitEmail() {
-  const email = document.getElementById('inp-email').value.trim();
-  const name  = document.getElementById('inp-name').value.trim();
-  const kvkk  = document.getElementById('kvkk-check').checked;
-  const errEl = document.getElementById('error-msg');
+  var email = document.getElementById('inp-email').value.trim();
+  var name  = document.getElementById('inp-name').value.trim();
+  var kvkk  = document.getElementById('kvkk-check').checked;
+  var errEl = document.getElementById('error-msg');
   errEl.style.display = 'none';
 
   if (!email || !email.includes('@')) {
-    errEl.textContent = 'Geçerli bir e-posta adresi girin.';
-    errEl.style.display = 'block';
-    return;
+    errEl.textContent = 'Gecerli bir e-posta adresi girin.';
+    errEl.style.display = 'block'; return;
   }
   if (!kvkk) {
-    errEl.textContent = 'Devam etmek için gizlilik politikasını kabul edin.';
-    errEl.style.display = 'block';
-    return;
+    errEl.textContent = 'Devam etmek icin gizlilik politikasini kabul edin.';
+    errEl.style.display = 'block'; return;
   }
 
-  const score = Object.values(answers).reduce((a, b) => a + b, 0) / QUESTIONS.length;
+  var score = Object.values(answers).reduce(function(a,b){ return a+b; }, 0) / QUESTIONS.length;
 
   try {
-    await fetch(`${SUPABASE_URL}/rest/v1/quick_leads`, {
+    await fetch(SUPABASE_URL + '/rest/v1/quick_leads', {
       method: 'POST',
       headers: {
         'apikey': SUPABASE_ANON,
@@ -1155,85 +896,72 @@ async function submitEmail() {
         score: parseFloat(score.toFixed(1)),
         answers: answers,
         kvkk_consent: true,
-        source: 'meta_ads_v3'
+        source: 'meta_ads_v4'
       })
     });
-  } catch (e) {
-    console.warn('Supabase kayıt hatası:', e);
-  }
+  } catch(e) { console.warn('Supabase kayit hatasi:', e); }
 
   showResult(email, name, score);
 }
 
-// ── SHOW RESULT ───────────────────────────────────────────────────────
 function showResult(email, name, score) {
-  const lvl = getLevel(score);
+  var lvl = getLevel(score);
 
   document.getElementById('result-greeting').textContent =
     name ? 'DigiScore Raporunuz, ' + name.split(' ')[0] : 'DigiScore Raporunuz';
-  document.getElementById('result-num').textContent   = score.toFixed(1);
+  document.getElementById('result-num').textContent   = '0.0';
   document.getElementById('result-level').textContent = lvl.icon + ' ' + lvl.name;
   document.getElementById('result-desc').textContent  = lvl.desc;
 
-  const dimList = document.getElementById('dim-list');
+  var scoreCard = document.getElementById('result-score-card');
+  scoreCard.classList.remove('level-red','level-yellow','level-green');
+  if (lvl.levelClass) scoreCard.classList.add(lvl.levelClass);
+
+  var dimList = document.getElementById('dim-list');
   dimList.innerHTML = '';
-  QUESTIONS.forEach(q => {
-    const val   = answers[q.key] || 0;
-    const pct   = val / 5 * 100;
-    const color = DIM_COLORS[val] || '#94A3B8';
-    const row   = document.createElement('div');
+  QUESTIONS.forEach(function(q) {
+    var val   = answers[q.key] || 0;
+    var pct   = val / 5 * 100;
+    var color = DIM_COLORS[val] || '#94A3B8';
+    var row   = document.createElement('div');
     row.className = 'dim-row';
-    row.innerHTML = `
-      <span class="dim-icon">${q.icon}</span>
-      <span class="dim-name">${q.dim}</span>
-      <div class="dim-bar-wrap">
-        <div class="dim-bar" style="width:${pct}%;background:${color}"></div>
-      </div>
-      <span class="dim-val" style="color:${color}">${val}/5</span>
-    `;
+    row.innerHTML =
+      '<span class="dim-icon">' + q.icon + '</span>' +
+      '<span class="dim-name">' + q.dim + '</span>' +
+      '<div class="dim-bar-wrap"><div class="dim-bar" style="width:' + pct + '%;background:' + color + '"></div></div>' +
+      '<span class="dim-val" style="color:' + color + '">' + val + '/5</span>';
     dimList.appendChild(row);
   });
 
-  const lowest = QUESTIONS.reduce((a, b) =>
-    (answers[a.key] || 0) <= (answers[b.key] || 0) ? a : b);
+  var lowest = QUESTIONS.reduce(function(a,b) {
+    return (answers[a.key]||0) <= (answers[b.key]||0) ? a : b;
+  });
   document.getElementById('priority-title').textContent =
-    '⚡ Öncelikli alan: ' + lowest.icon + ' ' + lowest.dim + ' (' + answers[lowest.key] + '/5)';
+    lowest.icon + ' ' + lowest.dim + ' (' + (answers[lowest.key]||0) + '/5)';
   document.getElementById('priority-text').textContent =
-    'Bu boyuttaki açık dijital dönüşüm hızınızı en çok etkileyen unsur. Detaylı yol haritası için tam DigiScore değerlendirmesini tamamlayın.';
+    'Bu boyuttaki acik dijital donusum hizinizi en cok etkileyen unsur. Asagida 30 dakikalik ucretsiz gorusmede bu alana ozel yol haritanizi olusturalim.';
 
   showStep('step-result');
   setStep(3);
   window.scrollTo({ top: 0, behavior: 'smooth' });
+  setTimeout(function() { animateScore('result-num', score, 1200); }, 120);
 }
 
-// ── NAV ───────────────────────────────────────────────────────────────
 function showStep(id) {
-  document.querySelectorAll('.step').forEach(s => s.classList.remove('active'));
+  document.querySelectorAll('.step').forEach(function(s) { s.classList.remove('active'); });
   document.getElementById(id).classList.add('active');
 }
-
-function goBack() {
-  showStep('step-questions');
-  setStep(1);
-  window.scrollTo({ top: 0, behavior: 'smooth' });
-}
-
+function goBack() { showStep('step-questions'); setStep(1); window.scrollTo({top:0,behavior:'smooth'}); }
 function restart() {
-  Object.keys(answers).forEach(k => delete answers[k]);
-  document.querySelectorAll('.opt-btn').forEach(b => b.classList.remove('selected'));
-  document.querySelectorAll('.q-card').forEach(c => c.classList.remove('answered'));
-  document.getElementById('progress-fill').style.width = '0%';
-  document.getElementById('progress-text').textContent = '0 / 8 soru yanıtlandı';
-  document.getElementById('progress-pct').textContent  = '0%';
-  const btn = document.getElementById('btn-calculate');
-  btn.disabled = true;
-  btn.textContent = 'Tüm soruları yanıtlayın';
-  document.getElementById('inp-email').value   = '';
-  document.getElementById('inp-name').value    = '';
+  Object.keys(answers).forEach(function(k) { delete answers[k]; });
+  currentIndex = 0; isAnimating = false;
+  document.getElementById('inp-email').value    = '';
+  document.getElementById('inp-name').value     = '';
   document.getElementById('kvkk-check').checked = false;
-  showStep('step-questions');
-  setStep(1);
-  window.scrollTo({ top: 0, behavior: 'smooth' });
+  var card = document.getElementById('q-single-card');
+  if (card) { card.innerHTML = ''; card.className = 'q-card'; delete card.dataset.loaded; }
+  showStep('step-questions'); setStep(1); showQuestion(0);
+  window.scrollTo({top:0,behavior:'smooth'});
 }
 
 init();
