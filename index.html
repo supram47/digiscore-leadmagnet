@@ -692,44 +692,44 @@ var SUPABASE_ANON = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZS
 // 7 SORU — Siber Guvenlik cikarildi, Surec ve Inovasyon yeniden yazildi
 var QUESTIONS = [
   { key: 'strateji',  icon: '&#127919;', dim: 'Strateji ve Liderlik',
-    q: 'Dijital donusum hedefleriniz ve oncelikleri ekibiniz tarafindan net bicimde biliniyor mu?' },
-  { key: 'teknoloji', icon: '&#9881;&#65039;', dim: 'Teknoloji Altyapisi',
-    q: 'Yazilim ve operasyonel sistemleriniz birbiriyle ne kadar entegre calisiyor?' },
+    q: 'Dijital dönüşüm hedefleriniz ve öncelikleri ekibiniz tarafından net biçimde biliniyor mu?' },
+  { key: 'teknoloji', icon: '&#9881;&#65039;', dim: 'Teknoloji Altyapısı',
+    q: 'Yazılım ve operasyonel sistemleriniz birbiriyle ne kadar entegre çalışıyor?' },
   { key: 'veri',      icon: '&#128202;', dim: 'Veri ve Analitik',
-    q: 'Onemli bir is karari verirken veriye ne siklikla basvuruyorsunuz?' },
-  { key: 'surec',     icon: '&#128260;', dim: 'Surec Olgunlugu',
-    q: 'Tekrarlayan is sureclerinizin ne kadari tanimli bir akisa ve standart isleyise sahip?' },
-  { key: 'musteri',   icon: '&#128101;', dim: 'Musteri Deneyimi',
-    q: 'Musteri geri bildirimlerini ne kadar hizli toplayip harekete gecebiliyorsunuz?' },
-  { key: 'inovasyon', icon: '&#128161;', dim: 'Inovasyon ve Girisim',
-    q: 'Yeni bir fikri veya yontemi denemek icin ne siklikla kaynak (zaman veya butce) ayiriyorsunuz?' },
-  { key: 'insan',     icon: '&#127807;', dim: 'Yetenek ve Kultur',
-    q: 'Son 6 ayda ekibinizde yeni bir calisma yontemi, surec veya dijital arac benimsendi mi?' }
+    q: 'Önemli bir iş kararı verirken veriye ne sıklıkla başvuruyorsunuz?' },
+  { key: 'surec',     icon: '&#128260;', dim: 'Süreç Olgunluğu',
+    q: 'Tekrarlayan iş süreçlerinizin ne kadarı tanımlı bir akışa ve standart işleyişe sahip?' },
+  { key: 'musteri',   icon: '&#128101;', dim: 'Müşteri Deneyimi',
+    q: 'Müşteri geri bildirimlerini ne kadar hızlı toplayıp harekete geçebiliyorsunuz?' },
+  { key: 'inovasyon', icon: '&#128161;', dim: 'İnovasyon ve Girişim',
+    q: 'Yeni bir fikri veya yöntemi denemek için ne sıklıkla kaynak (zaman veya bütçe) ayırıyorsunuz?' },
+  { key: 'insan',     icon: '&#127807;', dim: 'Yetenek ve Kültür',
+    q: 'Son 6 ayda ekibinizde yeni bir çalışma yöntemi, süreç veya dijital araç benimsendi mi?' }
 ];
 
 var SCALE = [
-  { v: 1, short: '1', label: 'Henuz\nbaslamadi' },
-  { v: 2, short: '2', label: 'Bireysel\ngirisimler' },
-  { v: 3, short: '3', label: 'Kismi\nuygulama' },
-  { v: 4, short: '4', label: 'Buyuk\nolcude var' },
+  { v: 1, short: '1', label: 'Henüz\nbaşlamadı' },
+  { v: 2, short: '2', label: 'Bireysel\ngirişimler' },
+  { v: 3, short: '3', label: 'Kısmi\nuygulama' },
+  { v: 4, short: '4', label: 'Büyük\nölçüde var' },
   { v: 5, short: '5', label: 'Kurumsal\nstandart' }
 ];
 var Q_SCALES = [
-  ['Hayir','Sadece\nliderlik','Bazi\nekipler','Cogunluk','Tum\nekip'],
-  ['Entegre\ndegil','Minimal','Kismi','Buyuk\nolcude','Tam\nentegre'],
-  ['Hic','Nadiren','Bazen','Siklikla','Her\nzaman'],
-  ['Hicbiri','Az\nkismi','Yarisi','Buyuk\nkismi','Tamami'],
-  ['Aylar\nsonra','Haftalar','Gunler','Saatler','Anlik'],
-  ['Hic','Nadiren','Bazen','Siklikla','Her\nzaman'],
-  ['Hayir','Denendi','Kismi','Buyuk\nolcude','Tamamen']
+  ['Hayır','Sadece\nliderlik','Bazı\nekipler','Çoğunluk','Tüm\nekip'],
+  ['Entegre\ndeğil','Minimal','Kısmi','Büyük\nölçüde','Tam\nentegre'],
+  ['Hiç','Nadiren','Bazen','Sıklıkla','Her\nzaman'],
+  ['Hiçbiri','Az\nkısmı','Yarısı','Büyük\nkısmı','Tamamı'],
+  ['Aylar\nsonra','Haftalar','Günler','Saatler','Anlık'],
+  ['Hiç','Nadiren','Bazen','Sıklıkla','Her\nzaman'],
+  ['Hayır','Denendi','Kısmi','Büyük\nölçüde','Tamamen']
 ];
 
 var LEVELS = [
-  { min: 1.0, max: 1.8, name: 'Seviye 1 - Baslangic',  icon: '&#128308;', color: '#E74C3C', desc: 'Dijital donusum farkindaligi dusuk. Acil mudahale gerekiyor.', levelClass: 'level-red' },
-  { min: 1.8, max: 2.6, name: 'Seviye 2 - Gelismekte', icon: '&#128992;', color: '#E67E22', desc: 'Farkindalik olustu, bazi girisimler baslatildi. Stratejik yol haritasi sart.', levelClass: 'level-yellow' },
-  { min: 2.6, max: 3.4, name: 'Seviye 3 - Tanimli',   icon: '&#128993;', color: '#D97706', desc: 'Surecler tanimli. Kurumsal olcege gecme ve olcum adimina odaklanin.', levelClass: 'level-yellow' },
-  { min: 3.4, max: 4.2, name: 'Seviye 4 - Yonetilen', icon: '&#129001;', color: '#059669', desc: 'Veriye dayali kararlar aliniyor. Sektor ortalamasinin uzerinde.', levelClass: 'level-green' },
-  { min: 4.2, max: 5.1, name: 'Seviye 5 - Optimize',  icon: '&#128309;', color: '#2980B9', desc: 'Surekli iyilestirme kulturu. Dijital lider konumundasiniz.', levelClass: 'level-green' }
+  { min: 1.0, max: 1.8, name: 'Seviye 1 - Başlangıç',  icon: '&#128308;', color: '#E74C3C', desc: 'Dijital dönüşüm farkındalığı düşük. Acil müdahale gerekiyor.', levelClass: 'level-red' },
+  { min: 1.8, max: 2.6, name: 'Seviye 2 - Gelişmekte', icon: '&#128992;', color: '#E67E22', desc: 'Farkındalık oluştu, bazı girişimler başlatıldı. Stratejik yol haritası şart.', levelClass: 'level-yellow' },
+  { min: 2.6, max: 3.4, name: 'Seviye 3 - Tanımlı',   icon: '&#128993;', color: '#D97706', desc: 'Süreçler tanımlı. Kurumsal ölçeğe geçme ve ölçüm adımına odaklanın.', levelClass: 'level-yellow' },
+  { min: 3.4, max: 4.2, name: 'Seviye 4 - Yönetilen', icon: '&#129001;', color: '#059669', desc: 'Veriye dayalı kararlar alınıyor. Sektör ortalamasının üzerinde.', levelClass: 'level-green' },
+  { min: 4.2, max: 5.1, name: 'Seviye 5 - Optimize',  icon: '&#128309;', color: '#2980B9', desc: 'Sürekli iyileştirme kültürü. Dijital lider konumundasınız.', levelClass: 'level-green' }
 ];
 
 var DIM_COLORS = { 1: '#E74C3C', 2: '#E67E22', 3: '#D97706', 4: '#059669', 5: '#2980B9' };
