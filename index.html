@@ -928,6 +928,14 @@ function showResult(email, name, score) {
   scoreCard.classList.remove('level-red','level-yellow','level-green');
   if (lvl.levelClass) scoreCard.classList.add(lvl.levelClass);
 
+  var nameParts = (name || '').trim().split(' ');
+  var hsFirst = encodeURIComponent(nameParts[0] || '');
+  var hsLast  = encodeURIComponent(nameParts.slice(1).join(' ') || '');
+  var hsEmail = encodeURIComponent(email.toLowerCase());
+  var hsBase  = 'https://meetings-eu1.hubspot.com/suphi-ramazanoglu';
+  var hsUrl   = hsBase + '?email=' + hsEmail + '&firstname=' + hsFirst + '&lastname=' + hsLast;
+  document.querySelectorAll('a[href*="meetings-eu1.hubspot.com"]').forEach(function(a){ a.href = hsUrl; });
+
   var dimList = document.getElementById('dim-list');
   dimList.innerHTML = '';
   QUESTIONS.forEach(function(q) {
