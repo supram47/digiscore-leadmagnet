@@ -540,7 +540,18 @@ footer a { color: #94A3B8; text-underline-offset: 2px; }
 
   <!-- STEP 2: EMAIL GATE -->
   <div class="step" id="step-email">
-    <div style="padding:24px 0 16px;text-align:center;">
+
+    <!-- Dijital Donusum Gorsel Banner -->
+    <div style="position:relative;width:100%;border-radius:14px;overflow:hidden;margin-top:18px;margin-bottom:4px;box-shadow:0 8px 32px rgba(10,35,66,.22);">
+      <canvas id="dtx-canvas" width="640" height="200" style="display:block;width:100%;height:auto;"></canvas>
+      <div style="position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:16px;">
+        <div style="font-size:.68rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.55);margin-bottom:6px;">EVOLIXO · DigiScore</div>
+        <div style="font-size:1.1rem;font-weight:900;color:#fff;letter-spacing:-.02em;text-shadow:0 2px 12px rgba(0,0,0,.5);text-wrap:balance;">Dijital Olgunluk Analizi Tamamlandi</div>
+        <div style="font-size:.75rem;color:rgba(255,255,255,.60);margin-top:4px;">Puaniniz hazir — son bir adim kaldi</div>
+      </div>
+    </div>
+
+    <div style="padding:20px 0 14px;text-align:center;">
       <div style="font-size:0.72rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-bottom:8px;">DigiScore Hizli Sonuc</div>
       <h2 style="font-size:1.4rem;font-weight:900;color:var(--navy);letter-spacing:-.03em;margin-bottom:6px;">Puaniniz hesaplandi</h2>
       <p style="font-size:0.85rem;color:var(--muted);line-height:1.5;">E-posta adresinizi birakin — 7 boyutun tam kirilimini gorun.</p>
@@ -965,6 +976,115 @@ function restart() {
 }
 
 init();
+
+// DTX Canvas — animasyonlu ag gorseli
+(function(){
+  var canvas = document.getElementById('dtx-canvas');
+  if (!canvas) return;
+  var ctx = canvas.getContext('2d');
+  var W = canvas.width, H = canvas.height;
+  var NAVY = '#0A2342', ACCENT = '#E84C2E', BLUE = '#3B82F6';
+
+  var nodes = [];
+  for (var i = 0; i < 38; i++) {
+    nodes.push({
+      x: Math.random() * W,
+      y: Math.random() * H,
+      vx: (Math.random() - 0.5) * 0.55,
+      vy: (Math.random() - 0.5) * 0.55,
+      r: Math.random() * 2.2 + 1.2,
+      hue: Math.random() < 0.18 ? 'accent' : (Math.random() < 0.5 ? 'blue' : 'white')
+    });
+  }
+
+  function nodeColor(n, alpha) {
+    if (n.hue === 'accent') return 'rgba(232,76,46,' + alpha + ')';
+    if (n.hue === 'blue')   return 'rgba(99,160,246,' + alpha + ')';
+    return 'rgba(255,255,255,' + alpha + ')';
+  }
+
+  function draw() {
+    ctx.clearRect(0, 0, W, H);
+
+    // Arka plan
+    var bg = ctx.createLinearGradient(0, 0, W, H);
+    bg.addColorStop(0,   '#071c38');
+    bg.addColorStop(0.5, '#0A2342');
+    bg.addColorStop(1,   '#0d2f5a');
+    ctx.fillStyle = bg;
+    ctx.fillRect(0, 0, W, H);
+
+    // Accent parlama - sol ust
+    var glo = ctx.createRadialGradient(W * 0.85, H * -0.1, 0, W * 0.85, H * -0.1, W * 0.55);
+    glo.addColorStop(0,   'rgba(232,76,46,.18)');
+    glo.addColorStop(1,   'rgba(232,76,46,0)');
+    ctx.fillStyle = glo;
+    ctx.fillRect(0, 0, W, H);
+
+    // Baglanti cizgileri
+    for (var i = 0; i < nodes.length; i++) {
+      for (var j = i + 1; j < nodes.length; j++) {
+        var dx = nodes[i].x - nodes[j].x;
+        var dy = nodes[i].y - nodes[j].y;
+        var dist = Math.sqrt(dx*dx + dy*dy);
+        if (dist < 120) {
+          var alpha = (1 - dist / 120) * 0.28;
+          ctx.beginPath();
+          ctx.moveTo(nodes[i].x, nodes[i].y);
+          ctx.lineTo(nodes[j].x, nodes[j].y);
+          ctx.strokeStyle = 'rgba(99,160,246,' + alpha + ')';
+          ctx.lineWidth = 0.7;
+          ctx.stroke();
+        }
+      }
+    }
+
+    // Node noktalari
+    for (var i = 0; i < nodes.length; i++) {
+      var n = nodes[i];
+      var gn = ctx.createRadialGradient(n.x, n.y, 0, n.x, n.y, n.r * 3.5);
+      gn.addColorStop(0, nodeColor(n, 0.9));
+      gn.addColorStop(1, nodeColor(n, 0));
+      ctx.beginPath();
+      ctx.arc(n.x, n.y, n.r * 3.5, 0, Math.PI * 2);
+      ctx.fillStyle = gn;
+      ctx.fill();
+
+      ctx.beginPath();
+      ctx.arc(n.x, n.y, n.r, 0, Math.PI * 2);
+      ctx.fillStyle = nodeColor(n, 1);
+      ctx.fill();
+    }
+  }
+
+  function update() {
+    for (var i = 0; i < nodes.length; i++) {
+      var n = nodes[i];
+      n.x += n.vx;
+      n.y += n.vy;
+      if (n.x < 0 || n.x > W) n.vx *= -1;
+      if (n.y < 0 || n.y > H) n.vy *= -1;
+    }
+  }
+
+  var raf;
+  function loop() {
+    update();
+    draw();
+    raf = requestAnimationFrame(loop);
+  }
+
+  // Sadece step-email gorunurken animasyonu calistir
+  var observer = new MutationObserver(function() {
+    var emailStep = document.getElementById('step-email');
+    if (emailStep && emailStep.classList.contains('active')) {
+      if (!raf) loop();
+    } else {
+      if (raf) { cancelAnimationFrame(raf); raf = null; }
+    }
+  });
+  observer.observe(document.getElementById('step-email'), { attributes: true, attributeFilter: ['class'] });
+})();
 </script>
 </body>
 </html>
